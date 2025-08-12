@@ -107,9 +107,10 @@
     "web": {},
     "extra": {
       "eas": {
-        "projectId": "41e3993f-a9e7-4df2-979c-9f85e8ed6518"
+        "projectId": "1c5f3747-1669-4e37-9a5d-f1176896f1a8"
       }
     },
-    "owner": "averyh3r3"
+    "owner": "averyh3r3",
+    "slug": "just-another-sudoku"
   }
 }
