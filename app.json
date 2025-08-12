@@ -1,0 +1,117 @@
+{
+  "name": "Just Another Sudoku",
+  "slug": "sudoku",
+  "displayName": "Just Another Sudoku",
+  "scheme": "sudoku",
+  "version": "1.0.0",
+  "orientation": "portrait",
+  "userInterfaceStyle": "automatic",
+  "icon": "./assets/app-icon/icon.png",
+  "updates": {
+    "fallbackToCacheTimeout": 0
+  },
+  "newArchEnabled": true,
+  "jsEngine": "hermes",
+  "assetBundlePatterns": ["**/*"],
+  "android": {
+    "icon": "./assets/app-icon/icon.png",
+    "package": "com.averyondo.sudoku",
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/app-icon/adaptive-icon.png",
+      "backgroundImage": "./assets/app-icon/adaptive-background.png"
+    },
+    "allowBackup": false,
+    "edgeToEdgeEnabled": true
+  },
+  "ios": {
+    "icon": {
+      "light": "./assets/app-icon/ios-light.png",
+      "dark": "./assets/app-icon/ios-dark.png",
+      "tinted": "./assets/app-icon/ios-tinted.png"
+    },
+    "supportsTablet": true,
+    "bundleIdentifier": "com.averyondo.sudoku",
+    "privacyManifests": {
+      "NSPrivacyAccessedAPITypes": [
+        {
+          "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+          "NSPrivacyAccessedAPITypeReasons": ["CA92.1"]
+        }
+      ]
+    },
+    "infoPlist": {
+      "ITSAppUsesNonExemptEncryption": false
+    }
+  },
+  "web": {
+    "favicon": "./assets/images/app-icon-web-favicon.png",
+    "bundler": "metro"
+  },
+  "plugins": [
+    "expo-localization",
+    "expo-font",
+    [
+      "expo-splash-screen",
+      {
+        "image": "./assets/app-icons/splash-icon-light.png",
+        "darkImage": "./assets/app-icons/splash-icon-dark.png",
+        "imageWidth": 300,
+        "resizeMode": "contain",
+        "backgroundColor": "#171717"
+      }
+    ],
+    [
+      "react-native-edge-to-edge",
+      {
+        "android": {
+          "parentTheme": "Light",
+          "enforceNavigationBarContrast": false
+        }
+      }
+    ],
+    "expo-router"
+  ],
+  "experiments": {
+    "tsconfigPaths": true,
+    "typedRoutes": true
+  },
+  "extra": {
+    "ignite": {
+      "version": "11.1.0"
+    },
+    "router": {},
+    "eas": {
+      "projectId": "fdbd173e-56d0-480b-a218-7fdfade270c3"
+    }
+  },
+  "owner": "averyh3r3",
+  "expo": {
+    "android": {
+      "package": "com.averyh3r3.sudoku"
+    },
+    "ios": {
+      "privacyManifests": {
+        "NSPrivacyAccessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+            "NSPrivacyAccessedAPITypeReasons": ["CA92.1"]
+          },
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+            "NSPrivacyAccessedAPITypeReasons": ["CA92.1"]
+          }
+        ]
+      },
+      "bundleIdentifier": "com.averyh3r3.sudoku",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "web": {},
+    "extra": {
+      "eas": {
+        "projectId": "41e3993f-a9e7-4df2-979c-9f85e8ed6518"
+      }
+    }
+  }
+}
