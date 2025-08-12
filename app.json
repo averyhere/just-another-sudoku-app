@@ -79,15 +79,12 @@
     "ignite": {
       "version": "11.1.0"
     },
-    "router": {},
-    "eas": {
-      "projectId": "fdbd173e-56d0-480b-a218-7fdfade270c3"
-    }
+    "router": {}
   },
-  "owner": "averyh3r3",
+  "owner": "averyhere",
   "expo": {
     "android": {
-      "package": "com.averyh3r3.sudoku"
+      "package": "com.averyhere.just-another-sudoku"
     },
     "ios": {
       "privacyManifests": {
@@ -102,7 +99,7 @@
           }
         ]
       },
-      "bundleIdentifier": "com.averyh3r3.sudoku",
+      "bundleIdentifier": "com.averyhere.just-another-sudoku",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
@@ -112,6 +109,7 @@
       "eas": {
         "projectId": "41e3993f-a9e7-4df2-979c-9f85e8ed6518"
       }
-    }
+    },
+    "owner": "averyhere"
   }
 }
