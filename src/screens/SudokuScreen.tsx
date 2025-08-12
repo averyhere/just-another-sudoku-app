@@ -7,14 +7,17 @@ import { Screen } from "@/components/Screen"
 import { SudokuBoard } from "@/components/SudokuBoard"
 import { SudokuControls } from "@/components/SudokuControls"
 import { SudokuHeader } from "@/components/SudokuHeader"
+import { NewGameForm } from "@/components/NewGameForm"
+
 import { Text } from "@/components/Text"
-import { useGameStoreHydration } from "@/storage/gameStore"
+import { useGameStore, useGameStoreHydration } from "@/storage/gameStore"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 
 export function SudokuScreen() {
   const { themed, theme } = useAppTheme()
   const hasHydrated = useGameStoreHydration()
+  const { puzzle } = useGameStore()
 
   if (!hasHydrated) {
     return <Text text="Loading game..." />
@@ -25,7 +28,6 @@ export function SudokuScreen() {
       <SafeAreaView
         style={themed({
           width: "100%",
-          flex: 1,
           alignItems: "center",
           justifyContent: "space-between",
           paddingHorizontal: theme.spacing.md,
@@ -62,9 +64,19 @@ export function SudokuScreen() {
             </Text>
           </View>
         </View>
-        <SudokuHeader />
-        <SudokuBoard />
-        <SudokuControls />
+
+        <View
+          style={themed({
+            width: "100%",
+            gap: 16,
+            alignItems: "center",
+            justifyContent: "space-between",
+          })}
+        >
+          <SudokuHeader />
+          <SudokuBoard />
+          <SudokuControls />
+        </View>
         <GameOverModal />
       </SafeAreaView>
     </Screen>

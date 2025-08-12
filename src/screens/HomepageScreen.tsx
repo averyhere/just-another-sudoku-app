@@ -35,6 +35,7 @@ export function HomepageScreen() {
             width: "100%",
             gap: 64,
             padding: 16,
+            paddingBottom: 64,
           })}
         >
           <View

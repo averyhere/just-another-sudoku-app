@@ -34,6 +34,7 @@ export function SettingsScreen() {
             width: "100%",
             height: "100%",
             gap: 8,
+            paddingBottom: 64,
           })}
         >
           <View style={themed($topContainer)}>
@@ -50,17 +51,19 @@ export function SettingsScreen() {
                   style={themed({
                     padding: 8,
                     flexDirection: "row",
-                    alignItems: "center",
                     width: "100%",
                   })}
                 >
                   <Button
                     preset={defaultDifficulty === "easy" ? "filled" : "default"}
                     style={themed({
-                      width: "25%",
+                      flex: 1,
                       padding: 0,
                       borderTopRightRadius: 0,
                       borderBottomRightRadius: 0,
+                    })}
+                    textStyle={themed({
+                      padding: 0,
                     })}
                     onPress={() => handleUpdateDefaultDifficulty("easy")}
                     tx="common:easyLabel"
@@ -68,10 +71,15 @@ export function SettingsScreen() {
                   <Button
                     preset={defaultDifficulty === "medium" ? "filled" : "default"}
                     style={themed({
-                      width: "25%",
+                      flex: 1,
                       padding: 0,
+                      margin: 0,
                       borderLeftWidth: 0,
                       borderRadius: 0,
+                    })}
+                    textStyle={themed({
+                      padding: 0,
+                      margin: 0,
                     })}
                     onPress={() => handleUpdateDefaultDifficulty("medium")}
                     tx="common:mediumLabel"
@@ -79,10 +87,13 @@ export function SettingsScreen() {
                   <Button
                     preset={defaultDifficulty === "hard" ? "filled" : "default"}
                     style={themed({
-                      width: "25%",
+                      flex: 1,
                       padding: 0,
                       borderLeftWidth: 0,
                       borderRadius: 0,
+                    })}
+                    textStyle={themed({
+                      padding: 0,
                     })}
                     onPress={() => handleUpdateDefaultDifficulty("hard")}
                     tx="common:hardLabel"
@@ -90,11 +101,14 @@ export function SettingsScreen() {
                   <Button
                     preset={defaultDifficulty === "expert" ? "filled" : "default"}
                     style={themed({
-                      width: "25%",
+                      flex: 1,
                       padding: 0,
                       borderLeftWidth: 0,
                       borderTopLeftRadius: 0,
                       borderBottomLeftRadius: 0,
+                    })}
+                    textStyle={themed({
+                      padding: 0,
                     })}
                     onPress={() => handleUpdateDefaultDifficulty("expert")}
                     tx="common:expertLabel"
