@@ -25,9 +25,9 @@
   },
   "ios": {
     "icon": {
-      "light": "./assets/app-icon/ios-light.png",
-      "dark": "./assets/app-icon/ios-dark.png",
-      "tinted": "./assets/app-icon/ios-tinted.png"
+      "dark": "./assets/images/ios-dark.png",
+      "light": "./assets/images/ios-light.png",
+      "tinted": "./assets/images/ios-tinted.png"
     },
     "supportsTablet": true,
     "bundleIdentifier": "com.averyhere.justanothersudoku",
@@ -53,8 +53,10 @@
     [
       "expo-splash-screen",
       {
-        "image": "./assets/app-icons/splash-icon-light.png",
-        "darkImage": "./assets/app-icons/splash-icon-dark.png",
+        "image": {
+          "light": "./assets/app-icons/splash-icon-light.png",
+          "dark": "./assets/app-icons/splash-icon-dark.png"
+        },
         "imageWidth": 300,
         "resizeMode": "contain",
         "backgroundColor": "#171717"

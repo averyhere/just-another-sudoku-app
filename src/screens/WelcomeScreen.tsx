@@ -9,8 +9,8 @@ import { $styles } from "@/theme/styles"
 import type { ThemedStyle } from "@/theme/types"
 import { useSafeAreaInsetsStyle } from "@/utils/useSafeAreaInsetsStyle"
 
-const welcomeLogo = require("@assets/images/logo.png")
-const welcomeFace = require("@assets/images/welcome-face.png")
+const welcomeLogo = require("@assets/app-icon/icon.png")
+const welcomeFace = require("@assets/icons/bell.png")
 
 export const WelcomeScreen: FC = function WelcomeScreen() {
   const { themed, theme } = useAppTheme()
