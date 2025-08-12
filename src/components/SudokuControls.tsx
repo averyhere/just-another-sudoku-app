@@ -61,11 +61,11 @@ export function SudokuControls() {
         setGameStatus("lost")
         addEntry({
           date: new Date(),
-          difficulty: difficulty,
+          difficulty: difficulty!,
           puzzle: puzzle,
-          originalPuzzle: originalPuzzle,
+          originalPuzzle: originalPuzzle!,
           solution: solution,
-          time: timer,
+          timer: timer,
           errorCount: errorCount,
           gameStatus: gameStatus as string,
         })
@@ -77,11 +77,11 @@ export function SudokuControls() {
       setGameStatus("won")
       addEntry({
         date: new Date(),
-        difficulty: difficulty,
+        difficulty: difficulty!,
         puzzle: puzzle,
-        originalPuzzle: originalPuzzle,
+        originalPuzzle: originalPuzzle!,
         solution: solution,
-        time: timer,
+        timer: timer,
         errorCount: errorCount,
         gameStatus: gameStatus as string,
       })

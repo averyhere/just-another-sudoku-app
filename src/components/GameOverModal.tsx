@@ -71,7 +71,7 @@ export function GameOverModal() {
                 <View>
                   {gameStatus === "won" ? (
                     <View style={themed($historyCol)}>
-                      <FontAwesome name="trophy" size={48} color="green" />
+                      <FontAwesome name="trophy" size={48} color={theme.colors.palette.blue} />
                       <Text size="xl" style={themed($title)} text="Congratulations!" />
                     </View>
                   ) : (
@@ -171,7 +171,7 @@ const $historyCol: ThemedStyle<ViewStyle> = () => ({
   alignItems: "center",
 })
 const $title: ThemedStyle<TextStyle> = ({ typography, colors }) => ({
-  color: colors.textDim,
+  color: colors.text,
   textAlign: "center",
   fontFamily: typography.fonts.lexendDeca.light,
 })

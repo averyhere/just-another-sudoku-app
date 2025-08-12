@@ -3,13 +3,13 @@ import { Difficulty } from "sudoku-gen/dist/types/difficulty.type"
 import { create } from "zustand"
 import { persist, createJSONStorage } from "zustand/middleware"
 
-type EntryType = {
+export type EntryType = {
   date: Date
   difficulty: string | Difficulty
   puzzle: string[]
   originalPuzzle: string[]
   solution: string[]
-  time: number
+  timer: number
   errorCount: number
   gameStatus: string
 }
@@ -30,7 +30,7 @@ const sampleEntries: EntryType[] = [
     puzzle: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
     originalPuzzle: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
     solution: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
-    time: 1000,
+    timer: 1000,
     errorCount: 0,
     gameStatus: "won",
   },
@@ -40,7 +40,7 @@ const sampleEntries: EntryType[] = [
     puzzle: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
     originalPuzzle: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
     solution: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
-    time: 2000,
+    timer: 2000,
     errorCount: 1,
     gameStatus: "won",
   },
@@ -50,7 +50,7 @@ const sampleEntries: EntryType[] = [
     puzzle: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
     originalPuzzle: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
     solution: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
-    time: 2000,
+    timer: 2000,
     errorCount: 5,
     gameStatus: "lost",
   },
@@ -60,7 +60,7 @@ const sampleEntries: EntryType[] = [
     puzzle: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
     originalPuzzle: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
     solution: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
-    time: 3000,
+    timer: 3000,
     errorCount: 2,
     gameStatus: "won",
   },

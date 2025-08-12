@@ -8,7 +8,7 @@ import { Logo } from "@/components/Logo"
 import { NewGameForm } from "@/components/NewGameForm"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
-import { useHistoryStore } from "@/storage/historyStore"
+import { useHistoryStore, useHistoryStoreHydration } from "@/storage/historyStore"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
@@ -19,6 +19,11 @@ export function HomepageScreen() {
   const { themed, theme } = useAppTheme()
 
   const { entries } = useHistoryStore()
+  const hasHydrated = useHistoryStoreHydration()
+
+  if (!hasHydrated) {
+    return null
+  }
 
   return (
     <Screen contentContainerStyle={$styles.flex1}>
@@ -94,8 +99,7 @@ export function HomepageScreen() {
                   style={themed(({ colors }) => ({
                     backgroundColor: colors.sudokuPalette.cellBackgroundAlt,
                   }))}
-                  heading={formatDate(entry.date.toString(), "yyyy MMM dd")}
-                  // heading="Date here"
+                  heading={entry?.date ? new Date(entry.date).toLocaleDateString() : "No Date"}
                   headingStyle={themed({
                     textAlign: "center",
                     fontFamily: theme.typography.fonts.lexendDeca.light,
@@ -139,8 +143,8 @@ export function HomepageScreen() {
                             size="xl"
                             adjustsFontSizeToFit
                             style={themed($historyStatValue)}
-                            text={formatTime(entry.time)}
-                            // text="Time here"
+                            // text={formatTime(entry.time)}
+                            text="Time here"
                           />
                         </View>
                         <Text size="xs" style={themed($historyStatLabel)} text="Time" />
