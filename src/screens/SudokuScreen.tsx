@@ -3,12 +3,11 @@ import { SafeAreaView } from "react-native-safe-area-context"
 
 import { GameOverModal } from "@/components/GameOverModal"
 import { Logo } from "@/components/Logo"
+import { NewGameForm } from "@/components/NewGameForm"
 import { Screen } from "@/components/Screen"
 import { SudokuBoard } from "@/components/SudokuBoard"
 import { SudokuControls } from "@/components/SudokuControls"
 import { SudokuHeader } from "@/components/SudokuHeader"
-import { NewGameForm } from "@/components/NewGameForm"
-
 import { Text } from "@/components/Text"
 import { useGameStore, useGameStoreHydration } from "@/storage/gameStore"
 import { useAppTheme } from "@/theme/context"
