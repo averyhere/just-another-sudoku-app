@@ -1,5 +1,5 @@
 {
-  "name": "@averyhere/just-another-sudoku",
+  "name": "justanothersudoku",
   "version": "0.0.1",
   "private": true,
   "main": "expo-router/entry",
