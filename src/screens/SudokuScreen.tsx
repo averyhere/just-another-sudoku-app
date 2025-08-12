@@ -65,18 +65,32 @@ export function SudokuScreen() {
           </View>
         </View>
 
-        <View
-          style={themed({
-            width: "100%",
-            gap: 16,
-            alignItems: "center",
-            justifyContent: "space-between",
-          })}
-        >
-          <SudokuHeader />
-          <SudokuBoard />
-          <SudokuControls />
-        </View>
+        {puzzle && (
+          <View
+            style={themed({
+              width: "100%",
+              gap: 16,
+              alignItems: "center",
+              justifyContent: "space-between",
+            })}
+          >
+            <SudokuHeader />
+            <SudokuBoard />
+            <SudokuControls />
+          </View>
+        )}
+        {!puzzle && (
+          <View
+            style={themed({
+              width: "100%",
+              gap: 16,
+              alignItems: "center",
+              justifyContent: "space-between",
+            })}
+          >
+            <NewGameForm />
+          </View>
+        )}
         <GameOverModal />
       </SafeAreaView>
     </Screen>
