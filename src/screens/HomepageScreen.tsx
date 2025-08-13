@@ -24,7 +24,7 @@ export function HomepageScreen() {
   if (!hasHydrated) {
     return null
   }
-  console.log("entries", entries)
+
   return (
     <Screen contentContainerStyle={$styles.flex1}>
       <ScrollView
