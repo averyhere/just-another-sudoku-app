@@ -1,114 +1,99 @@
 {
-  "name": "Just Another Sudoku",
-  "slug": "justanothersudoku",
-  "displayName": "Just Another Sudoku",
-  "scheme": "justanothersudoku",
-  "version": "1.0.0",
-  "orientation": "portrait",
-  "userInterfaceStyle": "automatic",
-  "newArchEnabled": true,
-  "icon": "./assets/app-icon/icon.png",
-  "updates": {
-    "fallbackToCacheTimeout": 0
-  },
-  "jsEngine": "jsc",
-  "assetBundlePatterns": ["**/*"],
-  "android": {
-    "icon": "./assets/app-icon/icon.png",
-    "package": "com.averyhere.justanothersudoku",
-    "adaptiveIcon": {
-      "foregroundImage": "./assets/app-icon/adaptive-icon.png",
-      "backgroundImage": "./assets/app-icon/adaptive-background.png"
-    },
-    "allowBackup": false,
-    "edgeToEdgeEnabled": true
-  },
-  "ios": {
-    "icon": {
-      "dark": "./assets/app-icon/ios-dark.png",
-      "light": "./assets/app-icon/ios-light.png",
-      "tinted": "./assets/app-icon/ios-tinted.png"
-    },
-    "supportsTablet": true,
-    "bundleIdentifier": "com.averyhere.justanothersudoku",
-    "privacyManifests": {
-      "NSPrivacyAccessedAPITypes": [
-        {
-          "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
-          "NSPrivacyAccessedAPITypeReasons": ["CA92.1"]
-        }
-      ]
-    },
-    "infoPlist": {
-      "ITSAppUsesNonExemptEncryption": false
-    }
-  },
-  "web": {
-    "favicon": "./assets/app-icon/icon.png",
-    "bundler": "metro"
-  },
-  "plugins": [
-    "expo-localization",
-    "expo-font",
-    [
-      "expo-splash-screen",
-      {
-        "image": {
-          "light": "./assets/app-icons/splash-icon-light.png",
-          "dark": "./assets/app-icons/splash-icon-dark.png"
-        },
-        "imageWidth": 300,
-        "resizeMode": "contain",
-        "backgroundColor": "#171717"
-      }
-    ],
-    [
-      "react-native-edge-to-edge",
-      {
-        "android": {
-          "parentTheme": "Light",
-          "enforceNavigationBarContrast": false
-        }
-      }
-    ],
-    "expo-router"
-  ],
-  "experiments": {
-    "tsconfigPaths": true,
-    "typedRoutes": true
-  },
-  "extra": {
-    "ignite": {
-      "version": "11.1.0"
-    },
-    "router": {}
-  },
-  "owner": "averyh3r3",
   "expo": {
+    "name": "Just Another Sudoku",
+    "slug": "just-another-sudoku",
+    "displayName": "Just Another Sudoku",
+    "scheme": "justanothersudoku",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "icon": "./assets/app-icon/icon.png",
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "jsEngine": "jsc",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "android": {
-      "package": "com.averyhere.justanothersudoku"
+      "icon": "./assets/app-icon/icon.png",
+      "package": "com.averyhere.justanothersudoku",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/app-icon/adaptive-icon.png",
+        "backgroundColor": "#171717"
+      },
+      "allowBackup": false,
+      "edgeToEdgeEnabled": true
     },
     "ios": {
+      "icon": "./assets/app-icon/ios-light.png",
+      "supportsTablet": true,
+      "bundleIdentifier": "com.averyhere.justanothersudoku",
       "privacyManifests": {
         "NSPrivacyAccessedAPITypes": [
           {
             "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
-            "NSPrivacyAccessedAPITypeReasons": ["CA92.1"]
+            "NSPrivacyAccessedAPITypeReasons": [
+              "CA92.1"
+            ]
           }
         ]
       },
-      "bundleIdentifier": "com.averyhere.justanothersudoku",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
     },
-    "web": {},
+    "web": {
+      "favicon": "./assets/app-icon/icon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-localization",
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "image": {
+            "light": "./assets/app-icons/splash-icon-light.png",
+            "dark": "./assets/app-icons/splash-icon-dark.png"
+          },
+          "imageWidth": 300,
+          "resizeMode": "contain",
+          "backgroundColor": "#171717",
+          "ios": {
+            "icon": {
+              "light": "./assets/app-icon/ios-light.png",
+              "dark": "./assets/app-icon/ios-dark.png",
+              "tinted": "./assets/app-icon/ios-tinted.png"
+            }
+          }
+        }
+      ],
+      [
+        "react-native-edge-to-edge",
+        {
+          "android": {
+            "parentTheme": "Light",
+            "enforceNavigationBarContrast": false
+          }
+        }
+      ],
+      "expo-router"
+    ],
+    "experiments": {
+      "tsconfigPaths": true,
+      "typedRoutes": true
+    },
     "extra": {
+      "ignite": {
+        "version": "11.1.0"
+      },
+      "router": {},
       "eas": {
-        "projectId": "1c5f3747-1669-4e37-9a5d-f1176896f1a8"
+        "projectId": "ac2242e8-6900-47f3-8e9e-29d3df7075ba"
       }
     },
-    "owner": "averyh3r3",
-    "slug": "just-another-sudoku"
+    "owner": "averyh3r3"
   }
 }
