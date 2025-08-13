@@ -2,7 +2,6 @@
   "expo": {
     "name": "Just Another Sudoku",
     "slug": "just-another-sudoku",
-    "displayName": "Just Another Sudoku",
     "scheme": "justanothersudoku",
     "version": "1.0.0",
     "orientation": "portrait",
