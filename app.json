@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Just Another Sudoku",
-    "slug": "justanothersudokuapp",
+    "slug": "just-another-sudoku-app",
     "scheme": "justanothersudokuapp",
     "version": "1.0.0",
     "orientation": "portrait",
