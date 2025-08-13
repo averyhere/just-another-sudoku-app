@@ -83,6 +83,11 @@ export const useGameStore = create<GameStore>()(
         if (!get().isPaused && get().gameStatus === "playing") {
           set((state) => ({ timer: state.timer + 1 }))
         }
+
+        // if ((get().puzzle && get().solution) && (get().puzzle === get().solution)) {
+        //   get().pause()get().
+        //   set({ gameStatus: "won" })
+        // }
       },
 
       pause: () => set({ isPaused: true }),
@@ -110,7 +115,7 @@ export const useGameStore = create<GameStore>()(
           timer: 0,
           errorCount: 0,
           isPaused: true,
-          gameStatus: null,
+          gameStatus: "playing",
         }))
       },
 

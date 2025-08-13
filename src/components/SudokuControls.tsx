@@ -51,14 +51,28 @@ export function SudokuControls() {
     newPuzzle[pointer.index] = value
     setPuzzle(newPuzzle)
 
+    if (newPuzzle.join("") === solution.join("")) {
+      pause()
+      addEntry({
+        date: new Date(),
+        difficulty: difficulty!,
+        puzzle: puzzle,
+        originalPuzzle: originalPuzzle!,
+        solution: solution,
+        timer: timer,
+        errorCount: errorCount,
+        gameStatus: "won",
+      })
+      setGameStatus("won")
+    }
+
     if (
-      difficulty !== "easy" &&
       newPuzzle[pointer.index] !== solution[pointer.index] &&
       value !== "-"
     ) {
       incrementErrorCount()
       // note: 4 because this makes it "on the fifth mistake"
-      if (errorCount >= 4) {
+      if (difficulty !== "easy" && errorCount >= 4) {
         pause()
         addEntry({
           date: new Date(),
@@ -72,21 +86,6 @@ export function SudokuControls() {
         })
         setGameStatus("lost")
       }
-    }
-
-    if (newPuzzle === solution) {
-      pause()
-      addEntry({
-        date: new Date(),
-        difficulty: difficulty!,
-        puzzle: puzzle,
-        originalPuzzle: originalPuzzle!,
-        solution: solution,
-        timer: timer,
-        errorCount: errorCount,
-        gameStatus: "won",
-      })
-      setGameStatus("won")
     }
   }
 

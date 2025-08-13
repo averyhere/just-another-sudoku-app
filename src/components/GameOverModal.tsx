@@ -15,13 +15,16 @@ import { formatTime } from "@/utils/formatTime"
 export function GameOverModal() {
   const { themed, theme } = useAppTheme()
   const hasHydrated = useGameStoreHydration()
-  const gameStatus = useGameStore((s) => s.gameStatus)
+
+  const {
+    gameStatus,
+    difficulty,
+    timer,
+    errorCount
+  } = useGameStore();
+  
   const [showModal, setShowModal] = useState<boolean>(gameStatus === "won" || gameStatus === "lost")
-
-  const difficulty = useGameStore((s) => s.difficulty)
-  const timer = useGameStore((s) => s.timer)
-  const errorCount = useGameStore((s) => s.errorCount)
-
+console.log("game status", gameStatus)
   useEffect(() => {
     if (gameStatus === "won" || gameStatus === "lost") {
       setShowModal(true)
