@@ -11,7 +11,7 @@
   "updates": {
     "fallbackToCacheTimeout": 0
   },
-  "jsEngine": "hermes",
+  "jsEngine": "jsc",
   "assetBundlePatterns": ["**/*"],
   "android": {
     "icon": "./assets/app-icon/icon.png",
