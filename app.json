@@ -15,7 +15,7 @@
     "assetBundlePatterns": ["**/*"],
     "android": {
       "icon": "./assets/images/app-icon-android-legacy.png",
-      "package": "com.averyhere.just-another-sudoku-app",
+      "package": "com.averyhere.justanothersudokuapp",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/app-icon-android-adaptive-foreground.png",
         "backgroundColor": "#171717"
@@ -74,10 +74,7 @@
       "ignite": {
         "version": "11.1.0"
       },
-      "router": {},
-      "eas": {
-        "projectId": "8e760503-2b3d-4a76-a297-8a2049ceae4c"
-      }
+      "router": {}
     },
     "owner": "averyh3r3"
   }

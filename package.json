@@ -1,6 +1,6 @@
 {
   "name": "just-another-sudoku-app",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "main": "expo-router/entry",
   "scripts": {
