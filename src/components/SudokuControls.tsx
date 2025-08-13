@@ -57,7 +57,8 @@ export function SudokuControls() {
       value !== "-"
     ) {
       incrementErrorCount()
-      if (errorCount >= 5) {
+      // note: 4 because this makes it "on the fifth mistake"
+      if (errorCount >= 4) {
         pause()
         addEntry({
           date: new Date(),
@@ -67,7 +68,7 @@ export function SudokuControls() {
           solution: solution,
           timer: timer,
           errorCount: errorCount,
-          gameStatus: gameStatus as string,
+          gameStatus: "lost",
         })
         setGameStatus("lost")
       }
@@ -83,7 +84,7 @@ export function SudokuControls() {
         solution: solution,
         timer: timer,
         errorCount: errorCount,
-        gameStatus: gameStatus as string,
+        gameStatus: "won",
       })
       setGameStatus("won")
     }

@@ -13,7 +13,7 @@ import { ThemedStyle } from "@/theme/types"
 import { formatTime } from "@/utils/formatTime"
 
 export function GameOverModal() {
-  const [showModal, setShowModal] = useState<null | "won" | "lost">(null)
+  const [showModal, setShowModal] = useState<boolean>(false)
   const { themed, theme } = useAppTheme()
   const hasHydrated = useGameStoreHydration()
   const gameStatus = useGameStore((s) => s.gameStatus)
@@ -22,10 +22,8 @@ export function GameOverModal() {
   const errorCount = useGameStore((s) => s.errorCount)
 
   useEffect(() => {
-    if (gameStatus === "won") {
-      setShowModal("won")
-    } else if (gameStatus === "lost") {
-      setShowModal("lost")
+    if (gameStatus === "won" || gameStatus === "lost") {
+      setShowModal(true)
     }
   }, [gameStatus])
 
@@ -37,12 +35,12 @@ export function GameOverModal() {
     <Modal
       animationType="fade"
       transparent={true}
-      visible={showModal === null ? false : true}
+      visible={showModal}
       onRequestClose={() => {
-        setShowModal(null)
+        setShowModal(false)
       }}
       onDismiss={() => {
-        setShowModal(null)
+        setShowModal(false)
       }}
     >
       <BlurView
@@ -130,13 +128,13 @@ export function GameOverModal() {
             ContentComponent={
               <View>
                 <Text size="lg" style={themed({ textAlign: "center" })} text="Play again?" />
-                <NewGameForm onStartNewGame={() => setShowModal(null)} />
+                <NewGameForm onStartNewGame={() => setShowModal(false)} />
               </View>
             }
           />
 
           <Pressable
-            onPress={() => setShowModal(null)}
+            onPress={() => setShowModal(false)}
             style={themed({
               paddingTop: theme.spacing.md,
               paddingBottom: theme.spacing.xl,

@@ -30,7 +30,7 @@ export function EndGameScreen() {
     newGame(selectedDifficulty)
     router.push("/gameboard")
   }
-  console.log("gameStatus", gameStatus)
+
   return (
     <Screen contentContainerStyle={$styles.flex1}>
       <SafeAreaView
