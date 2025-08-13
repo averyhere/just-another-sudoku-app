@@ -56,14 +56,7 @@
           },
           "imageWidth": 300,
           "resizeMode": "contain",
-          "backgroundColor": "#171717",
-          "ios": {
-            "icon": {
-              "light": "./assets/images/ios-light.png",
-              "dark": "./assets/images/ios-dark.png",
-              "tinted": "./assets/images/ios-tinted.png"
-            }
-          }
+          "backgroundColor": "#171717"
         }
       ],
       [
