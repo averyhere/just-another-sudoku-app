@@ -31,20 +31,21 @@ export function SudokuControls() {
     return null
   }
 
-  // const handleAutofill = () => {
-  //   if (!puzzle || !solution) return
-  //   const newPuzzle = solution
-  //   newPuzzle[solution.length - 1] = "-"
-  //   setPuzzle(newPuzzle)
-  // }
+  const handleAutofill = () => {
+    if (!puzzle || !solution) return
+    const newPuzzle = solution
+    newPuzzle[solution.length - 1] = "-"
+    setPuzzle(newPuzzle)
+  }
 
   const handleSetValue = (value: string) => {
-    if (isPaused) resume()
     if (!puzzle) return
     if (!value) return
     if (!pointer) return
     if (originalPuzzle![pointer.index] !== "-") return
     if (!solution) return
+
+    if (isPaused) resume()
 
     const newPuzzle = puzzle
     newPuzzle[pointer.index] = value
@@ -58,7 +59,6 @@ export function SudokuControls() {
       incrementErrorCount()
       if (errorCount >= 5) {
         pause()
-        setGameStatus("lost")
         addEntry({
           date: new Date(),
           difficulty: difficulty!,
@@ -69,12 +69,12 @@ export function SudokuControls() {
           errorCount: errorCount,
           gameStatus: gameStatus as string,
         })
+        setGameStatus("lost")
       }
     }
 
     if (newPuzzle === solution) {
       pause()
-      setGameStatus("won")
       addEntry({
         date: new Date(),
         difficulty: difficulty!,
@@ -85,6 +85,7 @@ export function SudokuControls() {
         errorCount: errorCount,
         gameStatus: gameStatus as string,
       })
+      setGameStatus("won")
     }
   }
 
@@ -164,7 +165,7 @@ export function SudokuControls() {
             textAlign: "center",
             letterSpacing: 0.4,
           })}
-          disabled={!pointer || gameStatus !== null}
+          disabled={!pointer || gameStatus !== "playing"}
           disabledStyle={themed({
             opacity: 0.5,
           })}
@@ -173,7 +174,7 @@ export function SudokuControls() {
           })}
         />
       </View>
-      {/*{process.env.NODE_ENV === "development" && (
+      {process.env.NODE_ENV === "development" && (
         <View
           style={themed({
             width: "100%",
@@ -183,7 +184,7 @@ export function SudokuControls() {
         >
           <Button onPress={() => handleAutofill()} text="Autofill" />
         </View>
-      )}*/}
+      )}
       <View
         style={themed({
           width: "100%",

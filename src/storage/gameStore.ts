@@ -80,7 +80,7 @@ export const useGameStore = create<GameStore>()(
       clearPointer: () => set({ pointer: null }),
 
       tick: () => {
-        if (!get().isPaused && get().gameStatus === null) {
+        if (!get().isPaused && get().gameStatus === "playing") {
           set((state) => ({ timer: state.timer + 1 }))
         }
       },

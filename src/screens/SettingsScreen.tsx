@@ -49,68 +49,51 @@ export function SettingsScreen() {
               ContentComponent={
                 <View
                   style={themed({
-                    padding: 8,
                     flexDirection: "row",
+                    alignContent: "center",
+                    justifyContent: "center",
                     width: "100%",
                   })}
                 >
                   <Button
                     preset={defaultDifficulty === "easy" ? "filled" : "default"}
+                    onPress={() => setDefaultDifficulty("easy")}
                     style={themed({
-                      flex: 1,
-                      padding: 0,
+                      width: "25%",
                       borderTopRightRadius: 0,
                       borderBottomRightRadius: 0,
                     })}
-                    textStyle={themed({
-                      padding: 0,
-                    })}
-                    onPress={() => handleUpdateDefaultDifficulty("easy")}
                     tx="common:easyLabel"
                   />
                   <Button
                     preset={defaultDifficulty === "medium" ? "filled" : "default"}
+                    onPress={() => setDefaultDifficulty("medium")}
                     style={themed({
-                      flex: 1,
-                      padding: 0,
-                      margin: 0,
+                      width: "25%",
                       borderLeftWidth: 0,
                       borderRadius: 0,
                     })}
-                    textStyle={themed({
-                      padding: 0,
-                      margin: 0,
-                    })}
-                    onPress={() => handleUpdateDefaultDifficulty("medium")}
                     tx="common:mediumLabel"
                   />
                   <Button
                     preset={defaultDifficulty === "hard" ? "filled" : "default"}
+                    onPress={() => setDefaultDifficulty("hard")}
                     style={themed({
-                      flex: 1,
-                      padding: 0,
+                      width: "25%",
                       borderLeftWidth: 0,
                       borderRadius: 0,
                     })}
-                    textStyle={themed({
-                      padding: 0,
-                    })}
-                    onPress={() => handleUpdateDefaultDifficulty("hard")}
                     tx="common:hardLabel"
                   />
                   <Button
                     preset={defaultDifficulty === "expert" ? "filled" : "default"}
+                    onPress={() => setDefaultDifficulty("expert")}
                     style={themed({
-                      flex: 1,
-                      padding: 0,
+                      width: "25 %",
                       borderLeftWidth: 0,
                       borderTopLeftRadius: 0,
                       borderBottomLeftRadius: 0,
                     })}
-                    textStyle={themed({
-                      padding: 0,
-                    })}
-                    onPress={() => handleUpdateDefaultDifficulty("expert")}
                     tx="common:expertLabel"
                   />
                 </View>
@@ -187,10 +170,8 @@ export function SettingsScreen() {
                 gap: 8,
               })}
             >
-              <Text style={themed({ textAlign: "center" })} size="sm">
-                🏳️‍🌈🏳️‍⚧️✌🏼❤️
-              </Text>
-              <Text style={themed({ textAlign: "center" })} size="sm">
+              <Text style={themed({ textAlign: "center" })}>🏳️‍🌈🏳️‍⚧️✌🏼❤️</Text>
+              <Text style={themed({ textAlign: "center" })}>
                 This app was developed with ❤️ by Avery Ondo.
               </Text>
               <View

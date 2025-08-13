@@ -46,7 +46,7 @@ export function SudokuScreen() {
                 fontSize: 12,
                 lineHeight: 12,
                 textTransform: "uppercase",
-                color: theme.colors.textDim,
+                color: theme.colors.text,
               })}
             >
               Just Another
@@ -56,7 +56,7 @@ export function SudokuScreen() {
                 fontSize: 21,
                 lineHeight: 21,
                 textTransform: "uppercase",
-                color: theme.colors.textDim,
+                color: theme.colors.text,
               })}
             >
               Sudoku

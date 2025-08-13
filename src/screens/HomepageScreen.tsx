@@ -143,8 +143,7 @@ export function HomepageScreen() {
                             size="xl"
                             adjustsFontSizeToFit
                             style={themed($historyStatValue)}
-                            // text={formatTime(entry.time)}
-                            text="Time here"
+                            text={formatTime(entry.timer)}
                           />
                         </View>
                         <Text size="xs" style={themed($historyStatLabel)} text="Time" />
