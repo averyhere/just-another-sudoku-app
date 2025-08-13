@@ -12,7 +12,9 @@
       "fallbackToCacheTimeout": 0
     },
     "jsEngine": "hermes",
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "android": {
       "icon": "./assets/images/app-icon-android-legacy.png",
       "package": "com.averyhere.justanothersudokuapp",
@@ -31,7 +33,9 @@
         "NSPrivacyAccessedAPITypes": [
           {
             "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
-            "NSPrivacyAccessedAPITypeReasons": ["CA92.1"]
+            "NSPrivacyAccessedAPITypeReasons": [
+              "CA92.1"
+            ]
           }
         ]
       },
@@ -74,7 +78,10 @@
       "ignite": {
         "version": "11.1.0"
       },
-      "router": {}
+      "router": {},
+      "eas": {
+        "projectId": "de88623a-118e-42a4-9725-698f1adf7a64"
+      }
     },
     "owner": "averyh3r3"
   }
