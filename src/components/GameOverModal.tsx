@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import type { ViewStyle, TextStyle } from "react-native"
-import { View, Modal, Pressable } from "react-native"
+import type { ViewStyle, TextStyle  } from "react-native"
+import { View, Modal, Pressable, StyleSheet } from "react-native"
 import { BlurView } from "expo-blur"
 import FontAwesome from "@expo/vector-icons/FontAwesome"
 
@@ -13,10 +13,11 @@ import { ThemedStyle } from "@/theme/types"
 import { formatTime } from "@/utils/formatTime"
 
 export function GameOverModal() {
-  const [showModal, setShowModal] = useState<boolean>(false)
   const { themed, theme } = useAppTheme()
   const hasHydrated = useGameStoreHydration()
   const gameStatus = useGameStore((s) => s.gameStatus)
+  const [showModal, setShowModal] = useState<boolean>(gameStatus === "won" || gameStatus === "lost")
+
   const difficulty = useGameStore((s) => s.difficulty)
   const timer = useGameStore((s) => s.timer)
   const errorCount = useGameStore((s) => s.errorCount)
@@ -24,6 +25,8 @@ export function GameOverModal() {
   useEffect(() => {
     if (gameStatus === "won" || gameStatus === "lost") {
       setShowModal(true)
+    } else {
+      setShowModal(false)
     }
   }, [gameStatus])
 
@@ -34,8 +37,13 @@ export function GameOverModal() {
   return (
     <Modal
       animationType="fade"
-      transparent={true}
       visible={showModal}
+      transparent={true}
+      presentationStyle="overFullScreen"
+      style={themed({ 
+        justifyContent: "center",
+        alignItems: "center",
+       })}
       onRequestClose={() => {
         setShowModal(false)
       }}
@@ -44,11 +52,12 @@ export function GameOverModal() {
       }}
     >
       <BlurView
-        style={themed({
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        })}
+        style={[
+          StyleSheet.absoluteFill,
+          themed({
+            justifyContent: "center",
+            alignItems: "center",
+          })]}
       >
         <View
           style={themed({
