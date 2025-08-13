@@ -40,7 +40,7 @@ export const useSettingsStore = create<SettingsStore>()(
       setHasHydrated: (state) => set({ hasHydrated: state }),
     }),
     {
-      name: "justanothersudoku-settingsstore",
+      name: "just-another-sudoku-app-settingsstore",
       storage: createJSONStorage(() => mmkvStorage),
       partialize: (state) => ({
         defaultDifficulty: state.defaultDifficulty,

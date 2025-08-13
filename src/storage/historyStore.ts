@@ -100,7 +100,7 @@ export const useHistoryStore = create<HistoryStore>()(
       setHasHydrated: (state) => set({ hasHydrated: state }),
     }),
     {
-      name: "justanothersudoku-historystore",
+      name: "just-another-sudoku-app-historystore",
       storage: createJSONStorage(() => mmkvStorage),
       partialize: (state) => ({
         entries: state.entries,

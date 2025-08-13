@@ -119,7 +119,7 @@ export const useGameStore = create<GameStore>()(
       setHasHydrated: (state) => set({ hasHydrated: state }),
     }),
     {
-      name: "justanothersudoku-gamestore",
+      name: "just-another-sudoku-app-gamestore",
       storage: createJSONStorage(() => mmkvStorage),
       partialize: (state) => ({
         difficulty: state.difficulty,
