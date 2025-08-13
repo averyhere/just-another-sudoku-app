@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "Just Another Sudoku",
-    "slug": "just-another-sudoku-app",
-    "scheme": "just-another-sudoku-app",
+    "slug": "justanothersudokuapp",
+    "scheme": "justanothersudokuapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
@@ -12,9 +12,7 @@
       "fallbackToCacheTimeout": 0
     },
     "jsEngine": "hermes",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "android": {
       "icon": "./assets/images/app-icon-android-legacy.png",
       "package": "com.averyhere.justanothersudokuapp",
@@ -28,14 +26,12 @@
     "ios": {
       "icon": "./assets/images/ios-light.png",
       "supportsTablet": true,
-      "bundleIdentifier": "com.averyhere.just-another-sudoku-app",
+      "bundleIdentifier": "com.averyhere.justanothersudokuapp",
       "privacyManifests": {
         "NSPrivacyAccessedAPITypes": [
           {
             "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
-            "NSPrivacyAccessedAPITypeReasons": [
-              "CA92.1"
-            ]
+            "NSPrivacyAccessedAPITypeReasons": ["CA92.1"]
           }
         ]
       },
