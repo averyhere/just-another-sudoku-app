@@ -8,17 +8,17 @@
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/app-icon-all.png",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
     "jsEngine": "hermes",
     "assetBundlePatterns": ["**/*"],
     "android": {
-      "icon": "./assets/images/icon.png",
+      "icon": "./assets/images/app-icon-android-legacy.png",
       "package": "com.averyhere.justanothersudoku",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/app-icon-android-adaptive-foreground.png",
         "backgroundColor": "#171717"
       },
       "allowBackup": false,
