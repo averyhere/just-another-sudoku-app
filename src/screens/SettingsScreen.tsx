@@ -182,7 +182,7 @@ export function SettingsScreen() {
                 })}
               >
                 <Link
-                  href="https://github.com/averyondo/just-another-sudoku-app"
+                  href="https://github.com/averyhere/just-another-sudoku-app"
                   aria-label="View this project's code in its GitHub Repository"
                   style={themed({ padding: 8 })}
                 >
