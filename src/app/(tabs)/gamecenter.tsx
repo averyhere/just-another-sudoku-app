@@ -18,7 +18,7 @@ const LEADERBOARD_IDS = {
 }
 
 export default function GameCenterTab() {
-  const { isLoading, isReady } = useGameCenter({
+  const { isLoading, isReady, showLeaderboard, player } = useGameCenter({
     leaderboards: {
       best_score: "JustAnotherSudokuLeaderboardBestScore",
     },
@@ -55,7 +55,13 @@ export default function GameCenterTab() {
     <ScrollView style={styles.scrollView}>
       <View style={styles.container}>
         <Card style={styles.card}>
-          <Text size="lg" text="Game Center" style={styles.title} />
+          <Text size="lg" text={`Hey ${player?.displayName || "there"}!`} style={styles.title} />
+          <Button
+            text="Show Leaderboard"
+            onPress={() => {
+              showLeaderboard("best_score")
+            }}
+          />
         </Card>
       </View>
     </ScrollView>
