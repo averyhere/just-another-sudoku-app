@@ -48,6 +48,15 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="gamecenter"
+        options={{
+          title: "Game Center",
+          tabBarAccessibilityLabel: "Game Center",
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="trophy" color={color} />,
+          headerShown: false,
+        }}
+      />
+      <Tabs.Screen
         name="settings"
         options={{
           title: "Settings",
