@@ -1,5 +1,5 @@
 // In your React component
-import { View, ViewStyle, ScrollView, TextStyle } from "react-native"
+import { View, ViewStyle, ScrollView, TextStyle, Platform } from "react-native"
 import FontAwesome from "@expo/vector-icons/FontAwesome"
 import { SafeAreaView } from "react-native-safe-area-context"
 
@@ -16,7 +16,7 @@ import { formatDate } from "@/utils/formatDate"
 import { formatTime } from "@/utils/formatTime"
 
 export function HomepageScreen() {
-  const { themed, theme } = useAppTheme()
+  const { themed, theme, platform } = useAppTheme()
 
   const { entries } = useHistoryStore()
   const hasHydrated = useHistoryStoreHydration()
@@ -49,7 +49,7 @@ export function HomepageScreen() {
               justifyContent: "center",
             })}
           >
-            <Logo size={200} variant="color" />
+            <Logo size={platform.isPad ? 320 : 200} variant="color" />
             <View style={themed({ flexDirection: "column", alignItems: "flex-start" })}>
               <Text
                 style={themed({

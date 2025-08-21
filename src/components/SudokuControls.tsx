@@ -1,12 +1,13 @@
-import { View } from "react-native"
-
+import { View, ViewStyle } from "react-native"
+import type { ThemedStyle } from "@/theme/types"
 import { Button } from "@/components/Button"
 import { useGameStore, useGameStoreHydration } from "@/storage/gameStore"
 import { useHistoryStore } from "@/storage/historyStore"
 import { useAppTheme } from "@/theme/context"
+import { useState } from "react"
 
 export function SudokuControls() {
-  const { themed, theme } = useAppTheme()
+  const { themed, theme, platform } = useAppTheme()
   const hasHydrated = useGameStoreHydration()
   const { addEntry } = useHistoryStore()
   const {
@@ -66,10 +67,7 @@ export function SudokuControls() {
       setGameStatus("won")
     }
 
-    if (
-      newPuzzle[pointer.index] !== solution[pointer.index] &&
-      value !== "-"
-    ) {
+    if (newPuzzle[pointer.index] !== solution[pointer.index] && value !== "-") {
       incrementErrorCount()
       // note: 4 because this makes it "on the fifth mistake"
       if (difficulty !== "easy" && errorCount >= 4) {
@@ -90,27 +88,13 @@ export function SudokuControls() {
   }
 
   return (
-    <View>
-      <View
-        style={themed({
-          width: "100%",
-          flexDirection: "row",
-          flexWrap: "wrap",
-        })}
-      >
+    <View style={themed({ alignItems: "center", justifyContent: "center" })}>
+      <View style={themed(platform.isPad && platform.isLandscape ? $numPadLayout : $defaultLayout)}>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
           <Button
             key={num}
             preset="cell"
-            style={themed({
-              width: "11.111%",
-              aspectRatio: 1 / 2,
-              borderRadius: 0,
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "transparent",
-              borderWidth: 0,
-            })}
+            style={themed(platform.isPad && platform.isLandscape ? $numPadButton : $defaultButton)}
             textStyle={themed({
               fontFamily: "LexendDeca_100Thin",
               fontWeight: 100,
@@ -139,6 +123,7 @@ export function SudokuControls() {
       </View>
       <View
         style={themed({
+          width: "100%",
           flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
@@ -174,24 +159,40 @@ export function SudokuControls() {
           })}
         />
       </View>
-      {process.env.NODE_ENV === "development" && (
-        <View
-          style={themed({
-            width: "100%",
-            flexDirection: "row",
-            flexWrap: "wrap",
-          })}
-        >
-          <Button onPress={() => handleAutofill()} text="Autofill" />
-        </View>
-      )}
-      <View
-        style={themed({
-          width: "100%",
-          flexDirection: "row",
-          flexWrap: "wrap",
-        })}
-      ></View>
     </View>
   )
 }
+
+const $defaultLayout: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  width: "100%",
+  flexDirection: "row",
+  flexWrap: "nowrap",
+})
+
+const $numPadLayout: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  width: "100%",
+  maxWidth: 360,
+  flexDirection: "row",
+  flexWrap: "wrap",
+  justifyContent: "space-between",
+  alignContent: "space-between",
+})
+const $defaultButton: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  width: "11.111%",
+  aspectRatio: 1 / 2,
+  borderRadius: 0,
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: "transparent",
+  borderWidth: 0,
+})
+
+const $numPadButton: ThemedStyle<ViewStyle> = ({ colors }) => ({
+  width: "30%",
+  aspectRatio: 1,
+  borderRadius: 0,
+  alignItems: "center",
+  backgroundColor: "transparent",
+  borderWidth: 0,
+  marginVertical: 16,
+})
