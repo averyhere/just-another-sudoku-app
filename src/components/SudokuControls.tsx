@@ -99,12 +99,12 @@ export function SudokuControls() {
               fontFamily: "LexendDeca_100Thin",
               fontWeight: 100,
               color: theme.colors.text,
-              fontSize: 52,
-              lineHeight: 52,
+              fontSize: platform.isPad ? 64 : 32,
+              lineHeight: platform.isPad ? 78 : 48,
               textAlign: "center",
             })}
             pressedStyle={themed({
-              backgroundColor: "transparent",
+              backgroundColor: theme.colors.sudokuPalette.cellBackgroundAlt,
               paddingTop: 16,
             })}
             disabledStyle={themed({
@@ -113,7 +113,9 @@ export function SudokuControls() {
             disabledTextStyle={themed({
               color: theme.colors.textDim,
             })}
-            pressedTextStyle={themed({})}
+            pressedTextStyle={themed({
+              color: theme.colors.tint,
+            })}
             onPress={() => handleSetValue(num.toString())}
             disabled={puzzle?.toString().match(new RegExp(`${num}`, "g"))?.length === 9}
             aria-disabled={puzzle?.toString().match(new RegExp(`${num}`, "g"))?.length === 9}

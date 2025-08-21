@@ -128,6 +128,7 @@ export function SettingsScreen() {
                 }
               />
             </View>
+
             <View
               style={themed({
                 flexDirection: platform.isPad ? "row" : "column",
@@ -205,46 +206,46 @@ export function SettingsScreen() {
                 }
               />
             </View>
+          </View>
 
-            {process.env.NODE_ENV === "development" && (
-              <View
+          {process.env.NODE_ENV === "development" && (
+            <View
+              style={themed({
+                flexDirection: platform.isPad ? "row" : "column",
+                gap: 32,
+                justifyContent: "center",
+              })}
+            >
+              <Card
+                heading="Development Tools"
                 style={themed({
-                  flexDirection: platform.isPad ? "row" : "column",
-                  gap: 32,
-                  justifyContent: "center",
+                  width: platform.isPad ? "40%" : "100%",
                 })}
-              >
-                <Card
-                  heading="Development Tools"
-                  style={themed({
-                    width: platform.isPad ? "40%" : "100%",
-                  })}
-                  headingStyle={{ color: theme.colors.error }}
-                  ContentComponent={
+                headingStyle={{ color: theme.colors.error }}
+                ContentComponent={
+                  <View
+                    style={themed({
+                      gap: 16,
+                      padding: 8,
+                    })}
+                  >
                     <View
                       style={themed({
-                        gap: 16,
-                        padding: 8,
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        alignItems: "center",
                       })}
                     >
-                      <View
-                        style={themed({
-                          flexDirection: "row",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                        })}
-                      >
-                        <Text size="lg" text="Seed History" />
-                        <Button preset="cell" onPress={seed}>
-                          <FontAwesome name="database" size={24} color={theme.colors.text} />
-                        </Button>
-                      </View>
+                      <Text size="lg" text="Seed History" />
+                      <Button preset="cell" onPress={seed}>
+                        <FontAwesome name="database" size={24} color={theme.colors.text} />
+                      </Button>
                     </View>
-                  }
-                />
-              </View>
-            )}
-          </View>
+                  </View>
+                }
+              />
+            </View>
+          )}
         </SafeAreaView>
       </ScrollView>
     </Screen>
