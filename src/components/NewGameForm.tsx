@@ -9,9 +9,10 @@ import { Text } from "@/components/Text"
 import { useGameStore } from "@/storage/gameStore"
 import { useSettingsStore } from "@/storage/settingsStore"
 import { useAppTheme } from "@/theme/context"
+import { HowToPlayModal } from "./HowToPlayModal"
 
 export function NewGameForm({ onStartNewGame }: { onStartNewGame?: () => void }) {
-  const { themed } = useAppTheme()
+  const { theme, themed } = useAppTheme()
   const { defaultDifficulty } = useSettingsStore()
   const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty>(defaultDifficulty)
 
@@ -82,14 +83,12 @@ export function NewGameForm({ onStartNewGame }: { onStartNewGame?: () => void })
           flexDirection: "row",
           alignContent: "center",
           justifyContent: "center",
+          gap: 16,
         })}
       >
-        <Button
-          preset="3d"
-          onPress={handleNewGame}
-          text={gameStatus === "playing" ? "New Game" : "Start Game"}
-        />
+        <Button preset="3d" onPress={handleNewGame} text="Start Game" />
       </View>
+      <HowToPlayModal />
     </View>
   )
 }
