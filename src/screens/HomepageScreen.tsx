@@ -188,6 +188,7 @@ export function HomepageScreen() {
             gap: 64,
             padding: 16,
             paddingBottom: 64,
+            alignItems: "center",
           })}
         >
           <View
@@ -236,6 +237,7 @@ export function HomepageScreen() {
             <View
               style={themed({
                 width: "100%",
+                maxWidth: 640,
                 gap: 32,
               })}
             >
