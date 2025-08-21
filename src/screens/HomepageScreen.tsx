@@ -25,6 +25,153 @@ export function HomepageScreen() {
     return null
   }
 
+  if (platform.isPad && platform.isLandscape) {
+    return (
+      <Screen contentContainerStyle={$styles.flex1}>
+        <SafeAreaView
+          style={themed({
+            flex: 1,
+            height: "100%",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "row",
+            gap: 32,
+          })}
+        >
+          <View style={themed({ width: "30%" })}>
+            <View
+              style={themed({
+                alignItems: "center",
+                justifyContent: "center",
+              })}
+            >
+              <Logo size={200} variant="color" />
+              <View style={themed({ flexDirection: "column", alignItems: "flex-start" })}>
+                <Text
+                  style={themed({
+                    textAlign: "center",
+                    fontSize: 30,
+                    lineHeight: 30,
+                    textTransform: "uppercase",
+                    color: theme.colors.tintInactive,
+                  })}
+                >
+                  Just Another
+                </Text>
+                <Text
+                  style={themed({
+                    textAlign: "center",
+                    fontSize: 54,
+                    lineHeight: 54,
+                    textTransform: "uppercase",
+                    color: theme.colors.tintInactive,
+                  })}
+                >
+                  Sudoku
+                </Text>
+              </View>
+            </View>
+
+            <NewGameForm />
+          </View>
+
+          <View style={themed({ width: "30%" })}>
+            {!entries || !entries.length ? (
+              <View>
+                <Text
+                  style={themed({ textAlign: "center" })}
+                  text="Your game history will display here."
+                />
+              </View>
+            ) : (
+              <ScrollView
+                contentContainerStyle={themed({
+                  width: "100%",
+                  minHeight: "100%",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: 32,
+                })}
+              >
+                <Text size="xl" style={themed({ textAlign: "center" })} text="Game History" />
+                {entries.toReversed().map((entry, index) => (
+                  <Card
+                    key={index}
+                    style={themed(({ colors }) => ({
+                      backgroundColor: colors.sudokuPalette.cellBackgroundAlt,
+                    }))}
+                    heading={entry?.date ? new Date(entry.date).toLocaleDateString() : "No Date"}
+                    headingStyle={themed({
+                      textAlign: "center",
+                      fontFamily: theme.typography.fonts.lexendDeca.light,
+                    })}
+                    ContentComponent={
+                      <View style={themed($historyRow)}>
+                        {entry.gameStatus === "won" && (
+                          <View style={themed($historyCol)}>
+                            <FontAwesome
+                              name="trophy"
+                              size={48}
+                              color={theme.colors.sudokuPalette.cellTextAlt}
+                            />
+                            <Text size="xs" style={themed($historyStatLabel)} text="Won" />
+                          </View>
+                        )}
+                        {entry.gameStatus === "lost" && (
+                          <View style={themed($historyCol)}>
+                            <FontAwesome
+                              name="frown-o"
+                              size={48}
+                              color={theme.colors.sudokuPalette.cellText}
+                            />
+                            <Text size="xs" style={themed($historyStatLabel)} text="Lost" />
+                          </View>
+                        )}
+                        <View style={themed($historyCol)}>
+                          <View style={themed($historyStatValueWrapper)}>
+                            <Text
+                              size="xl"
+                              adjustsFontSizeToFit
+                              style={themed($historyStatValue)}
+                              text={entry.difficulty}
+                            />
+                          </View>
+                          <Text size="xs" style={themed($historyStatLabel)} text="Difficulty" />
+                        </View>
+                        <View style={themed($historyCol)}>
+                          <View style={themed($historyStatValueWrapper)}>
+                            <Text
+                              size="xl"
+                              adjustsFontSizeToFit
+                              style={themed($historyStatValue)}
+                              text={formatTime(entry.timer)}
+                            />
+                          </View>
+                          <Text size="xs" style={themed($historyStatLabel)} text="Time" />
+                        </View>
+                        <View style={themed($historyCol)}>
+                          <View style={themed($historyStatValueWrapper)}>
+                            <Text
+                              size="xl"
+                              adjustsFontSizeToFit
+                              style={themed($historyStatValue)}
+                              text={entry.errorCount.toString()}
+                            />
+                          </View>
+                          <Text size="xs" style={themed($historyStatLabel)} text="Errors" />
+                        </View>
+                      </View>
+                    }
+                  />
+                ))}
+              </ScrollView>
+            )}
+          </View>
+        </SafeAreaView>
+      </Screen>
+    )
+  }
+
   return (
     <Screen contentContainerStyle={$styles.flex1}>
       <ScrollView
@@ -49,7 +196,7 @@ export function HomepageScreen() {
               justifyContent: "center",
             })}
           >
-            <Logo size={platform.isPad ? 320 : 200} variant="color" />
+            <Logo size={200} variant="color" />
             <View style={themed({ flexDirection: "column", alignItems: "flex-start" })}>
               <Text
                 style={themed({

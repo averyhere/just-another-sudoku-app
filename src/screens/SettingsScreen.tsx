@@ -46,7 +46,7 @@ export function SettingsScreen() {
           <View style={themed($bottomContainer)}>
             <View
               style={themed({
-                ...$styles.row,
+                flexDirection: platform.isPad ? "row" : "column",
                 gap: 32,
                 justifyContent: "center",
               })}
@@ -130,7 +130,7 @@ export function SettingsScreen() {
             </View>
             <View
               style={themed({
-                ...$styles.row,
+                flexDirection: platform.isPad ? "row" : "column",
                 gap: 32,
                 justifyContent: "center",
               })}
@@ -209,7 +209,7 @@ export function SettingsScreen() {
             {process.env.NODE_ENV === "development" && (
               <View
                 style={themed({
-                  ...$styles.row,
+                  flexDirection: platform.isPad ? "row" : "column",
                   gap: 32,
                   justifyContent: "center",
                 })}
