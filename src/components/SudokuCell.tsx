@@ -61,7 +61,7 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
       })}
       textStyle={themed({
         fontSize: platform.isPad && platform.isPortrait ? 52 : 32,
-        lineHeight: platform.isPad && platform.isPortrait ? 68 : 48,
+        lineHeight: platform.isPad && platform.isPortrait ? 68 : 40,
         fontFamily: "LexendDeca_200ExtraLight",
         fontWeight: 200,
       })}
