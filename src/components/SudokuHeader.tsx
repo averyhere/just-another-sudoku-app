@@ -26,7 +26,7 @@ export function SudokuHeader() {
     >
       <Text style={themed({ textTransform: "capitalize" })} text={difficulty} />
       <GameTimer />
-      <Text text={`${errorCount} / 5`} />
+      <Text text={difficulty !== "easy" ? `${errorCount} / 5` : errorCount.toString()} />
     </View>
   )
 }
