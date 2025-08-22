@@ -73,9 +73,9 @@ export function HowToPlayModal() {
           >
             <Card
               style={themed({
-                paddingHorizontal: platform.isPad ? theme.spacing.xxl : theme.spacing.md,
-                paddingTop: platform.isPad ? theme.spacing.xxl : theme.spacing.md,
-                paddingBottom: platform.isPad ? theme.spacing.xxxl : theme.spacing.xl,
+                paddingHorizontal: platform.isPad ? theme.spacing.xl : theme.spacing.md,
+                paddingTop: platform.isPad ? theme.spacing.xl : theme.spacing.md,
+                paddingBottom: platform.isPad ? theme.spacing.xxl : theme.spacing.xl,
               })}
               ContentComponent={
                 <View
@@ -85,7 +85,7 @@ export function HowToPlayModal() {
                 >
                   <Text
                     text="How to play Sudoku"
-                    size="xxl"
+                    size={platform.isPad ? "xxl" : "xl"}
                     style={themed({ textAlign: "center" })}
                   />
 
@@ -96,7 +96,7 @@ export function HowToPlayModal() {
                   >
                     <Text
                       text="1. Understand the Grid"
-                      size="xl"
+                      size={platform.isPad ? "xl" : "lg"}
                       style={themed({
                         textAlign: "center",
                         fontFamily: theme.typography.fonts.lexendDeca.regular,
@@ -104,7 +104,7 @@ export function HowToPlayModal() {
                     />
                     <Text
                       text="The 9x9 grid is divided into nine 3x3 subgrids."
-                      size="lg"
+                      size={platform.isPad ? "lg" : "sm"}
                       style={themed({
                         textAlign: "center",
                         fontFamily: theme.typography.fonts.lexendDeca.light,
@@ -119,7 +119,7 @@ export function HowToPlayModal() {
                   >
                     <Text
                       text="2. Basic Rules:"
-                      size="xl"
+                      size={platform.isPad ? "xl" : "lg"}
                       style={themed({
                         textAlign: "center",
                         fontFamily: theme.typography.fonts.lexendDeca.regular,
@@ -127,7 +127,7 @@ export function HowToPlayModal() {
                     />
                     <Text
                       text="Each row must contain the numbers 1-9, without any repetition."
-                      size="lg"
+                      size={platform.isPad ? "lg" : "sm"}
                       style={themed({
                         textAlign: "center",
                         fontFamily: theme.typography.fonts.lexendDeca.light,
@@ -135,7 +135,7 @@ export function HowToPlayModal() {
                     />
                     <Text
                       text="Each column must contain the numbers 1-9, without any repetition."
-                      size="lg"
+                      size={platform.isPad ? "lg" : "sm"}
                       style={themed({
                         textAlign: "center",
                         fontFamily: theme.typography.fonts.lexendDeca.light,
@@ -143,7 +143,7 @@ export function HowToPlayModal() {
                     />
                     <Text
                       text="Each of the nine 3x3 subgrids must contain the numbers 1-9, without any repetition."
-                      size="lg"
+                      size={platform.isPad ? "lg" : "sm"}
                       style={themed({
                         textAlign: "center",
                         fontFamily: theme.typography.fonts.lexendDeca.light,
