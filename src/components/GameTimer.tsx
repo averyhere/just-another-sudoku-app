@@ -4,7 +4,7 @@ import { Text } from "@/components/Text"
 import { useGameStore } from "@/storage/gameStore"
 
 export function GameTimer() {
-  const { timer, tick } = useGameStore()
+  const { timer, tick, isPaused } = useGameStore()
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -17,5 +17,5 @@ export function GameTimer() {
   const formatTime = (seconds: number) =>
     `${Math.floor(seconds / 60)}:${(seconds % 60).toString().padStart(2, "0")}`
 
-  return <Text text={`Time: ${formatTime(timer)}`} />
+  return <Text text={formatTime(timer)} />
 }

@@ -79,7 +79,7 @@ export function SudokuControls() {
           originalPuzzle: originalPuzzle!,
           solution: solution,
           timer: timer,
-          errorCount: errorCount,
+          errorCount: 5, // note: force, kinda like index + 1 situation
           gameStatus: "lost",
         })
         setGameStatus("lost")

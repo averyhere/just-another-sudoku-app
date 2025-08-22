@@ -132,6 +132,7 @@ export function SettingsScreen() {
             <View
               style={themed({
                 flexDirection: platform.isPad ? "row" : "column",
+                width: "100%",
                 gap: 32,
                 justifyContent: "center",
               })}
@@ -159,52 +160,50 @@ export function SettingsScreen() {
                 }
               />
 
-              <Card
-                heading="From the developer"
+              <View
                 style={themed({
+                  gap: 16,
+                  padding: 8,
                   width: platform.isPad ? "40%" : "100%",
                 })}
-                ContentComponent={
-                  <View style={themed({ gap: 16, padding: 8 })}>
-                    <Text style={themed({ textAlign: "center" })}>🏳️‍🌈🏳️‍⚧️✌🏼❤️</Text>
-                    <Text style={themed({ textAlign: "center" })}>
-                      This app was developed with ❤️ by Avery Ondo.
-                    </Text>
-                    <View
-                      style={themed({
-                        flexDirection: "row",
-                        justifyContent: "center",
-                        gap: 8,
-                      })}
-                    >
-                      <Link
-                        href="https://github.com/averyhere/just-another-sudoku-app"
-                        aria-label="View this project's code in its GitHub Repository"
-                        style={themed({ padding: 8 })}
-                      >
-                        <FontAwesome name="github" size={24} color={theme.colors.tint} />
-                      </Link>
-                      <Link
-                        href="https://averyhere.com"
-                        aria-label="Open Avery's website in your browser"
-                        style={themed({ padding: 8 })}
-                      >
-                        <FontAwesome name="link" size={24} color={theme.colors.tint} />
-                      </Link>
-                      <Link
-                        href="https://www.linkedin.com/in/averyondo"
-                        aria-label="Open Avery's LinkedIn Profile in your browser"
-                        style={themed({ padding: 8 })}
-                      >
-                        <FontAwesome name="linkedin" size={24} color={theme.colors.tint} />
-                      </Link>
-                    </View>
-                    <Text style={themed({ textAlign: "center" })} size="xxs">
-                      &copy; {new Date().getFullYear()} Avery Ondo.
-                    </Text>
-                  </View>
-                }
-              />
+              >
+                <Text style={themed({ textAlign: "center" })}>🏳️‍🌈🏳️‍⚧️✌🏼❤️</Text>
+                <Text size="xs" style={themed({ textAlign: "center" })}>
+                  This app was developed{platform.isPad ? " " : "\n"}with ❤️ by Avery Ondo.
+                </Text>
+                <View
+                  style={themed({
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    gap: 4,
+                  })}
+                >
+                  <Link
+                    href="https://github.com/averyhere/just-another-sudoku-app"
+                    aria-label="View this project's code in its GitHub Repository"
+                    style={themed({ padding: 8 })}
+                  >
+                    <FontAwesome name="github" size={24} color={theme.colors.tint} />
+                  </Link>
+                  <Link
+                    href="https://averyhere.com"
+                    aria-label="Open Avery's website in your browser"
+                    style={themed({ padding: 8 })}
+                  >
+                    <FontAwesome name="link" size={24} color={theme.colors.tint} />
+                  </Link>
+                  <Link
+                    href="https://www.linkedin.com/in/averyondo"
+                    aria-label="Open Avery's LinkedIn Profile in your browser"
+                    style={themed({ padding: 8 })}
+                  >
+                    <FontAwesome name="linkedin" size={24} color={theme.colors.tint} />
+                  </Link>
+                </View>
+                <Text style={themed({ textAlign: "center" })} size="xxs">
+                  &copy; {new Date().getFullYear()} Avery Ondo.
+                </Text>
+              </View>
             </View>
           </View>
 
