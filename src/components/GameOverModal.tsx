@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import type { ViewStyle, TextStyle  } from "react-native"
+import type { ViewStyle, TextStyle } from "react-native"
 import { View, Modal, Pressable, StyleSheet } from "react-native"
 import { BlurView } from "expo-blur"
 import FontAwesome from "@expo/vector-icons/FontAwesome"
@@ -16,15 +16,10 @@ export function GameOverModal() {
   const { themed, theme } = useAppTheme()
   const hasHydrated = useGameStoreHydration()
 
-  const {
-    gameStatus,
-    difficulty,
-    timer,
-    errorCount
-  } = useGameStore();
-  
+  const { gameStatus, difficulty, timer, errorCount } = useGameStore()
+
   const [showModal, setShowModal] = useState<boolean>(gameStatus === "won" || gameStatus === "lost")
-console.log("game status", gameStatus)
+
   useEffect(() => {
     if (gameStatus === "won" || gameStatus === "lost") {
       setShowModal(true)
@@ -43,10 +38,10 @@ console.log("game status", gameStatus)
       visible={showModal}
       transparent={true}
       presentationStyle="overFullScreen"
-      style={themed({ 
+      style={themed({
         justifyContent: "center",
         alignItems: "center",
-       })}
+      })}
       onRequestClose={() => {
         setShowModal(false)
       }}
@@ -60,7 +55,8 @@ console.log("game status", gameStatus)
           themed({
             justifyContent: "center",
             alignItems: "center",
-          })]}
+          }),
+        ]}
       >
         <View
           style={themed({

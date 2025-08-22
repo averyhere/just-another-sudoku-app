@@ -5,7 +5,7 @@ import { useAppTheme } from "@/theme/context"
 
 export function SudokuCell({ cellIndex }: { cellIndex: number }) {
   const hasHydrated = useGameStoreHydration()
-  const { themed, theme } = useAppTheme()
+  const { themed, theme, platform } = useAppTheme()
   const { pointer, setPointer, puzzle, solution } = useGameStore()
 
   const cellCoords = {
@@ -60,7 +60,8 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
                 : defaultBg,
       })}
       textStyle={themed({
-        fontSize: 32,
+        fontSize: platform.isPad && platform.isPortrait ? 52 : 32,
+        lineHeight: platform.isPad && platform.isPortrait ? 68 : 48,
         fontFamily: "LexendDeca_200ExtraLight",
         fontWeight: 200,
       })}
