@@ -1,25 +1,30 @@
-import { Translations } from "./en"
-
-const ko: Translations = {
+const ko = {
   common: {
     ok: "확인!",
+    okay: "알겠어요",
     cancel: "취소",
+    close: "닫기",
     back: "뒤로",
     startButtonText: "게임 시작",
     easyLabel: "쉬움",
     mediumLabel: "보통",
     hardLabel: "어려움",
     expertLabel: "전문가",
+    difficulty: "난이도",
+    won: "승리",
+    lost: "패배",
+    time: "시간",
+    mistakes: "실수",
+    loading: "로딩 중...",
+    noPuzzle: "퍼즐을 찾을 수 없음",
+    system: "시스템",
+    light: "라이트",
+    dark: "다크",
+    clearValue: "값 지우기",
   },
-  welcomeScreen: {
-    postscript:
-      "잠깐! — 지금 보시는 것은 아마도 당신의 앱의 모양새가 아닐겁니다. (디자이너분이 이렇게 건내주셨다면 모를까요. 만약에 그렇다면, 이대로 가져갑시다!) ",
-    readyForLaunch: "출시 준비가 거의 끝난 나만의 앱!",
-    exciting: "(오, 이거 신나는데요!)",
-  },
-  newGameScreen: {
-    title: "새 게임",
-    description: "새 게임의 난이도를 선택하세요.",
+  homeScreen: {
+    noHistoryTitle: "게임 기록이 여기에 표시됩니다.",
+    historyTitle: "게임 기록",
   },
   settingsScreen: {
     title: "설정",
@@ -31,18 +36,34 @@ const ko: Translations = {
       clearHistory: "점수 기록 지우기",
       theme: "테마",
     },
+    madeWithLove: "이 앱은 Avery Ondo가 ❤️로 개발했습니다.",
+  },
+  endGameScreen: {
+    congratulations: "축하합니다!",
+    betterLuckNextTime: "다음엔 더 잘할 수 있어요!",
+    playAgain: "다시 하시겠습니까?",
+  },
+  howToPlayModal: {
+    buttonText: "플레이 방법",
+    title: "스도쿠 플레이 방법",
+    step1title: "1. 그리드 이해하기",
+    step1desc: "9x9 그리드는 3x3 서브그리드 9개로 나뉩니다.",
+    step2title: "2. 기본 규칙:",
+    step2bullet1: "각 행에는 1~9의 숫자가 중복 없이 포함되어야 합니다.",
+    step2bullet2: "각 열에는 1~9의 숫자가 중복 없이 포함되어야 합니다.",
+    step2bullet3: "각 3x3 서브그리드에는 1~9의 숫자가 중복 없이 포함되어야 합니다.",
   },
   errorScreen: {
-    title: "뭔가 잘못되었습니다!",
+    title: "문제가 발생했습니다!",
     friendlySubtitle:
-      "이 화면은 오류가 발생할 때 프로덕션에서 사용자에게 표시됩니다. 이 메시지를 커스터마이징 할 수 있고(해당 파일은 `app/i18n/ko.ts` 에 있습니다) 레이아웃도 마찬가지로 수정할 수 있습니다(`app/screens/error`). 만약 이 오류화면을 완전히 없에버리고 싶다면 `app/app.tsx` 파일에서 <ErrorBoundary> 컴포넌트를 확인하기 바랍니다.",
-    reset: "초기화",
+      "오류가 발생하면 사용자가 보는 화면입니다. 이 메시지(`app/i18n/ko.ts`)와 레이아웃(`app/screens/ErrorScreen`)을 사용자 지정할 수 있습니다. 완전히 제거하려면 `app/app.tsx`의 <ErrorBoundary>를 확인하세요.",
+    reset: "앱 초기화",
   },
   emptyStateComponent: {
     generic: {
-      heading: "너무 텅 비어서.. 너무 슬퍼요..",
-      content: "데이터가 없습니다. 버튼을 눌러서 리프레쉬 하시거나 앱을 리로드하세요.",
-      button: "다시 시도해봅시다",
+      heading: "너무 비어있어요... 너무 슬퍼요",
+      content: "아직 데이터가 없습니다. 새로고침하거나 앱을 다시 로드하려면 버튼을 클릭하세요.",
+      button: "다시 시도하기",
     },
   },
 }

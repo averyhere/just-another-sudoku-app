@@ -1,49 +1,71 @@
-import { Translations } from "./en"
-
-const ja: Translations = {
+const ja = {
   common: {
-    ok: "OK",
+    ok: "OK!",
+    okay: "了解",
     cancel: "キャンセル",
+    close: "閉じる",
     back: "戻る",
     startButtonText: "ゲーム開始",
     easyLabel: "簡単",
     mediumLabel: "普通",
     hardLabel: "難しい",
-    expertLabel: "上級者",
+    expertLabel: "エキスパート",
+    difficulty: "難易度",
+    won: "勝利",
+    lost: "敗北",
+    time: "時間",
+    mistakes: "ミス",
+    loading: "読み込み中...",
+    noPuzzle: "パズルが見つかりません",
+    system: "システム",
+    light: "ライト",
+    dark: "ダーク",
+    clearValue: "値をクリア",
   },
-  welcomeScreen: {
-    postscript:
-      "注目！ — このアプリはお好みの見た目では無いかもしれません(デザイナーがこのスクリーンを送ってこない限りは。もしそうなら公開しちゃいましょう！)",
-    readyForLaunch: "このアプリはもう少しで公開できます！",
-    exciting: "(楽しみですね！)",
-  },
-  newGameScreen: {
-    title: "新しいゲーム",
-    description: "新しいゲームの難易度を選択してください。",
+  homeScreen: {
+    noHistoryTitle: "ゲーム履歴はここに表示されます。",
+    historyTitle: "ゲーム履歴",
   },
   settingsScreen: {
     title: "設定",
-    description: "アプリの設定をカスタマイズしてください。",
+    description: "アプリの設定をカスタマイズします。",
     labels: {
       language: "言語",
       defaultDifficulty: "デフォルトの難易度",
-      clearData: "すべてのデータを削除",
-      clearHistory: "スコア履歴を削除",
+      clearData: "すべてのデータを消去",
+      clearHistory: "スコア履歴を消去",
       theme: "テーマ",
     },
+    madeWithLove: "このアプリは Avery Ondo によって❤️で開発されました。",
+  },
+  endGameScreen: {
+    congratulations: "おめでとうございます！",
+    betterLuckNextTime: "次回はもっと頑張りましょう！",
+    playAgain: "もう一度プレイしますか？",
+  },
+  howToPlayModal: {
+    buttonText: "遊び方",
+    title: "数独の遊び方",
+    step1title: "1. グリッドを理解する",
+    step1desc: "9x9のグリッドは、3x3のサブグリッドが9つに分かれています。",
+    step2title: "2. 基本ルール：",
+    step2bullet1: "各行には1〜9の数字が重複せずに含まれている必要があります。",
+    step2bullet2: "各列には1〜9の数字が重複せずに含まれている必要があります。",
+    step2bullet3:
+      "9つの3x3サブグリッドそれぞれに1〜9の数字が重複せずに含まれている必要があります。",
   },
   errorScreen: {
-    title: "問題が発生しました",
+    title: "問題が発生しました！",
     friendlySubtitle:
-      "本番では、エラーが投げられた時にこのページが表示されます。もし使うならこのメッセージに変更を加えてください(`app/i18n/jp.ts`)レイアウトはこちらで変更できます(`app/screens/ErrorScreen`)。もしこのスクリーンを取り除きたい場合は、`app/app.tsx`にある<ErrorBoundary>コンポーネントをチェックしてください",
-    reset: "リセット",
+      "エラーが発生したときにユーザーが見る画面です。このメッセージ（`app/i18n/ja.ts`）やレイアウト（`app/screens/ErrorScreen`）をカスタマイズできます。完全に削除したい場合は、`app/app.tsx`の<ErrorBoundary>を確認してください。",
+    reset: "アプリをリセット",
   },
   emptyStateComponent: {
     generic: {
-      heading: "静かだ...悲しい。",
+      heading: "とても空っぽ...とても悲しい",
       content:
-        "データが見つかりません。ボタンを押してアプリをリロード、またはリフレッシュしてください。",
-      button: "もう一度やってみよう",
+        "まだデータがありません。ボタンをクリックして更新またはアプリを再読み込みしてください。",
+      button: "もう一度試す",
     },
   },
 }

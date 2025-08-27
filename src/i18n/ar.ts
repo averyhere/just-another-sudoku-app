@@ -1,48 +1,69 @@
-import { Translations } from "./en"
-
-const ar: Translations = {
+const ar = {
   common: {
-    ok: "نعم",
-    cancel: "حذف",
-    back: "خلف",
-    startButtonText: "بدء اللعبة",
+    ok: "موافق!",
+    okay: "حسنًا",
+    cancel: "إلغاء",
+    close: "إغلاق",
+    back: "عودة",
+    startButtonText: "ابدأ اللعبة",
     easyLabel: "سهل",
     mediumLabel: "متوسط",
     hardLabel: "صعب",
     expertLabel: "خبير",
+    difficulty: "الصعوبة",
+    won: "فزت",
+    lost: "خسرت",
+    time: "الوقت",
+    mistakes: "الأخطاء",
+    loading: "جار التحميل...",
+    noPuzzle: "لم يتم العثور على لغز",
+    system: "النظام",
+    light: "فاتح",
+    dark: "داكن",
+    clearValue: "مسح القيمة",
   },
-  welcomeScreen: {
-    postscript:
-      "ربما لا يكون هذا هو الشكل الذي يبدو عليه تطبيقك مالم يمنحك المصمم هذه الشاشات وشحنها في هذه الحالة",
-    readyForLaunch: "تطبيقك تقريبا جاهز للتشغيل",
-    exciting: "اوه هذا مثير",
-  },
-  newGameScreen: {
-    title: "لعبة جديدة",
-    description: "اختر مستوى الصعوبة للعبة الجديدة.",
+  homeScreen: {
+    noHistoryTitle: "سيتم عرض سجل ألعابك هنا.",
+    historyTitle: "سجل الألعاب",
   },
   settingsScreen: {
     title: "الإعدادات",
-    description: "تخصيص إعدادات التطبيق الخاص بك.",
+    description: "خصص إعدادات التطبيق.",
     labels: {
       language: "اللغة",
       defaultDifficulty: "الصعوبة الافتراضية",
       clearData: "مسح جميع البيانات",
-      clearHistory: "مسح تاريخ النتائج",
+      clearHistory: "مسح سجل النقاط",
       theme: "السمة",
     },
+    madeWithLove: "تم تطوير هذا التطبيق بحب ❤️ بواسطة Avery Ondo.",
+  },
+  endGameScreen: {
+    congratulations: "تهانينا!",
+    betterLuckNextTime: "حظًا أوفر في المرة القادمة!",
+    playAgain: "هل تريد اللعب مرة أخرى؟",
+  },
+  howToPlayModal: {
+    buttonText: "كيفية اللعب",
+    title: "كيفية لعب السودوكو",
+    step1title: "1. فهم الشبكة",
+    step1desc: "شبكة 9x9 مقسمة إلى تسعة مربعات فرعية 3x3.",
+    step2title: "2. القواعد الأساسية:",
+    step2bullet1: "يجب أن تحتوي كل صف على الأرقام من 1 إلى 9 دون تكرار.",
+    step2bullet2: "يجب أن تحتوي كل عمود على الأرقام من 1 إلى 9 دون تكرار.",
+    step2bullet3: "يجب أن يحتوي كل مربع فرعي 3x3 على الأرقام من 1 إلى 9 دون تكرار.",
   },
   errorScreen: {
-    title: "هناك خطأ ما",
+    title: "حدث خطأ ما!",
     friendlySubtitle:
-      "هذه هي الشاشة التي سيشاهدها المستخدمون في عملية الانتاج عند حدوث خطأ. سترغب في تخصيص هذه الرسالة ( الموجودة في 'ts.en/i18n/app') وربما التخطيط ايضاً ('app/screens/ErrorScreen'). إذا كنت تريد إزالة هذا بالكامل، تحقق من 'app/app.tsp' من اجل عنصر <ErrorBoundary>.",
-    reset: "اعادة تعيين التطبيق",
+      "هذه هي الشاشة التي سيرى المستخدمون عند حدوث خطأ. يمكنك تخصيص هذه الرسالة (في `app/i18n/ar.ts`) وربما التصميم أيضًا (`app/screens/ErrorScreen`). إذا أردت إزالتها تمامًا، تحقق من <ErrorBoundary> في `app/app.tsx`.",
+    reset: "إعادة ضبط التطبيق",
   },
   emptyStateComponent: {
     generic: {
-      heading: "فارغة جداً....حزين",
-      content: "لا توجد بيانات حتى الآن. حاول النقر فوق الزر لتحديث التطبيق او اعادة تحميله.",
-      button: "لنحاول هذا مرّة أخرى",
+      heading: "فارغ جدًا... محزن جدًا",
+      content: "لا توجد بيانات حتى الآن. حاول الضغط على الزر للتحديث أو إعادة تحميل التطبيق.",
+      button: "لنحاول مرة أخرى",
     },
   },
 }
