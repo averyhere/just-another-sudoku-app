@@ -168,9 +168,11 @@ export function SettingsScreen() {
                 })}
               >
                 <Text style={themed({ textAlign: "center" })}>🏳️‍🌈🏳️‍⚧️✌🏼❤️</Text>
-                <Text size="xs" style={themed({ textAlign: "center" })}>
-                  This app was developed{platform.isPad ? " " : "\n"}with ❤️ by Avery Ondo.
-                </Text>
+                <Text
+                  size="xs"
+                  style={themed({ textAlign: "center" })}
+                  tx="settingsScreen:madeWithLove"
+                />
                 <View
                   style={themed({
                     flexDirection: "row",
@@ -180,23 +182,14 @@ export function SettingsScreen() {
                 >
                   <Link
                     href="https://github.com/averyhere/just-another-sudoku-app"
-                    aria-label="View this project's code in its GitHub Repository"
                     style={themed({ padding: 8 })}
                   >
                     <FontAwesome name="github" size={24} color={theme.colors.tint} />
                   </Link>
-                  <Link
-                    href="https://averyhere.com"
-                    aria-label="Open Avery's website in your browser"
-                    style={themed({ padding: 8 })}
-                  >
+                  <Link href="https://averyhere.com" style={themed({ padding: 8 })}>
                     <FontAwesome name="link" size={24} color={theme.colors.tint} />
                   </Link>
-                  <Link
-                    href="https://www.linkedin.com/in/averyondo"
-                    aria-label="Open Avery's LinkedIn Profile in your browser"
-                    style={themed({ padding: 8 })}
-                  >
+                  <Link href="https://www.linkedin.com/in/averyondo" style={themed({ padding: 8 })}>
                     <FontAwesome name="linkedin" size={24} color={theme.colors.tint} />
                   </Link>
                 </View>
@@ -207,7 +200,7 @@ export function SettingsScreen() {
             </View>
           </View>
 
-          {process.env.NODE_ENV === "development" && (
+          {/* {process.env.NODE_ENV === "development" && (
             <View
               style={themed({
                 flexDirection: platform.isPad ? "row" : "column",
@@ -244,7 +237,7 @@ export function SettingsScreen() {
                 }
               />
             </View>
-          )}
+          )} */}
         </SafeAreaView>
       </ScrollView>
     </Screen>

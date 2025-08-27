@@ -39,7 +39,7 @@ export function ThemeToggle(_props: ThemeToggleProps) {
           borderTopRightRadius: 0,
           borderBottomRightRadius: 0,
         })}
-        text="System"
+        tx="common:system"
       />
       <Button
         preset={currentTheme === "light" ? "filled" : "default"}
@@ -49,7 +49,7 @@ export function ThemeToggle(_props: ThemeToggleProps) {
           borderLeftWidth: 0,
           borderRadius: 0,
         })}
-        text="Light"
+        tx="common:light"
       />
       <Button
         preset={currentTheme === "dark" ? "filled" : "default"}
@@ -59,7 +59,7 @@ export function ThemeToggle(_props: ThemeToggleProps) {
           borderLeftWidth: 0,
           borderRadius: 0,
         })}
-        text="Dark"
+        tx="common:dark"
       />
     </View>
   )

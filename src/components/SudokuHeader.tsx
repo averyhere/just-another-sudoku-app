@@ -12,7 +12,7 @@ export function SudokuHeader() {
   const { difficulty, errorCount } = useGameStore()
 
   if (!hasHydrated) {
-    return <Text text="Loading game..." />
+    return <Text tx="common:loading" />
   }
 
   return (

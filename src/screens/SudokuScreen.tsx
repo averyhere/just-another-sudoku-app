@@ -22,7 +22,7 @@ export function SudokuScreen() {
   const [controlsLeft, setControlsLeft] = useState<boolean>(false)
 
   if (!hasHydrated) {
-    return <Text text="Loading game..." />
+    return <Text tx="common:loading" />
   }
 
   const $gameboardLayout =

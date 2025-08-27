@@ -21,7 +21,7 @@ export function HowToPlayModal() {
   return (
     <View>
       <Button
-        text="How to Play"
+        tx="howToPlayModal:buttonText"
         onPress={() => setIsOpen(!isOpen)}
         preset="default"
         style={themed({
@@ -84,7 +84,7 @@ export function HowToPlayModal() {
                   })}
                 >
                   <Text
-                    text="How to play Sudoku"
+                    tx="howToPlayModal:title"
                     size={platform.isPad ? "xxl" : "xl"}
                     style={themed({ textAlign: "center" })}
                   />
@@ -95,7 +95,7 @@ export function HowToPlayModal() {
                     })}
                   >
                     <Text
-                      text="1. Understand the Grid"
+                      tx="howToPlayModal:step1title"
                       size={platform.isPad ? "xl" : "lg"}
                       style={themed({
                         textAlign: "center",
@@ -103,7 +103,7 @@ export function HowToPlayModal() {
                       })}
                     />
                     <Text
-                      text="The 9x9 grid is divided into nine 3x3 subgrids."
+                      tx="howToPlayModal:step1desc"
                       size={platform.isPad ? "lg" : "sm"}
                       style={themed({
                         textAlign: "center",
@@ -118,7 +118,7 @@ export function HowToPlayModal() {
                     })}
                   >
                     <Text
-                      text="2. Basic Rules:"
+                      tx="howToPlayModal:step2title"
                       size={platform.isPad ? "xl" : "lg"}
                       style={themed({
                         textAlign: "center",
@@ -126,7 +126,7 @@ export function HowToPlayModal() {
                       })}
                     />
                     <Text
-                      text="Each row must contain the numbers 1-9, without any repetition."
+                      tx="howToPlayModal:step2bullet1"
                       size={platform.isPad ? "lg" : "sm"}
                       style={themed({
                         textAlign: "center",
@@ -134,7 +134,7 @@ export function HowToPlayModal() {
                       })}
                     />
                     <Text
-                      text="Each column must contain the numbers 1-9, without any repetition."
+                      tx="howToPlayModal:step2bullet2"
                       size={platform.isPad ? "lg" : "sm"}
                       style={themed({
                         textAlign: "center",
@@ -142,7 +142,7 @@ export function HowToPlayModal() {
                       })}
                     />
                     <Text
-                      text="Each of the nine 3x3 subgrids must contain the numbers 1-9, without any repetition."
+                      tx="howToPlayModal:step2bullet2"
                       size={platform.isPad ? "lg" : "sm"}
                       style={themed({
                         textAlign: "center",
@@ -153,7 +153,7 @@ export function HowToPlayModal() {
 
                   <View style={themed({ alignItems: "center" })}>
                     <View>
-                      <Button text="Okay" preset="3d" onPress={() => setIsOpen(false)} />
+                      <Button tx="common:okay" preset="3d" onPress={() => setIsOpen(false)} />
                     </View>
                   </View>
                 </View>
@@ -178,7 +178,7 @@ export function HowToPlayModal() {
                 })}
               >
                 <FontAwesome name="close" size={24} color={theme.colors.textDim} />
-                <Text style={themed({ color: theme.colors.textDim })}>Close</Text>
+                <Text style={themed({ color: theme.colors.textDim })} tx="common:close" />
               </View>
             </Pressable>
           </View>

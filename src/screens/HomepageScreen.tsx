@@ -78,10 +78,7 @@ export function HomepageScreen() {
           <View style={themed({ width: "30%" })}>
             {!entries || !entries.length ? (
               <View>
-                <Text
-                  style={themed({ textAlign: "center" })}
-                  text="Your game history will display here."
-                />
+                <Text style={themed({ textAlign: "center" })} tx="homeScreen:noHistoryTitle" />
               </View>
             ) : (
               <ScrollView
@@ -93,14 +90,18 @@ export function HomepageScreen() {
                   gap: 32,
                 })}
               >
-                <Text size="xl" style={themed({ textAlign: "center" })} text="Game History" />
+                <Text
+                  size="xl"
+                  style={themed({ textAlign: "center" })}
+                  tx="homeScreen:historyTitle"
+                />
                 {entries.toReversed().map((entry, index) => (
                   <Card
                     key={index}
                     style={themed(({ colors }) => ({
                       backgroundColor: colors.sudokuPalette.cellBackgroundAlt,
                     }))}
-                    heading={entry?.date ? new Date(entry.date).toLocaleDateString() : "No Date"}
+                    heading={entry?.date ? new Date(entry.date).toLocaleDateString() : ""}
                     headingStyle={themed({
                       textAlign: "center",
                       fontFamily: theme.typography.fonts.lexendDeca.light,
@@ -114,7 +115,7 @@ export function HomepageScreen() {
                               size={48}
                               color={theme.colors.sudokuPalette.cellTextAlt}
                             />
-                            <Text size="xs" style={themed($historyStatLabel)} text="Won" />
+                            <Text size="xs" style={themed($historyStatLabel)} tx="common:won" />
                           </View>
                         )}
                         {entry.gameStatus === "lost" && (
@@ -124,7 +125,7 @@ export function HomepageScreen() {
                               size={48}
                               color={theme.colors.sudokuPalette.cellText}
                             />
-                            <Text size="xs" style={themed($historyStatLabel)} text="Lost" />
+                            <Text size="xs" style={themed($historyStatLabel)} tx="common:lost" />
                           </View>
                         )}
                         <View style={themed($historyCol)}>
@@ -136,7 +137,11 @@ export function HomepageScreen() {
                               text={entry.difficulty}
                             />
                           </View>
-                          <Text size="xs" style={themed($historyStatLabel)} text="Difficulty" />
+                          <Text
+                            size="xs"
+                            style={themed($historyStatLabel)}
+                            tx="common:difficulty"
+                          />
                         </View>
                         <View style={themed($historyCol)}>
                           <View style={themed($historyStatValueWrapper)}>
@@ -147,7 +152,7 @@ export function HomepageScreen() {
                               text={formatTime(entry.timer)}
                             />
                           </View>
-                          <Text size="xs" style={themed($historyStatLabel)} text="Time" />
+                          <Text size="xs" style={themed($historyStatLabel)} tx="common:time" />
                         </View>
                         <View style={themed($historyCol)}>
                           <View style={themed($historyStatValueWrapper)}>
@@ -158,7 +163,7 @@ export function HomepageScreen() {
                               text={entry.errorCount.toString()}
                             />
                           </View>
-                          <Text size="xs" style={themed($historyStatLabel)} text="Errors" />
+                          <Text size="xs" style={themed($historyStatLabel)} tx="common:mistakes" />
                         </View>
                       </View>
                     }
@@ -228,10 +233,7 @@ export function HomepageScreen() {
 
           {!entries || !entries.length ? (
             <View>
-              <Text
-                style={themed({ textAlign: "center" })}
-                text="Your game history will display here."
-              />
+              <Text style={themed({ textAlign: "center" })} tx="homeScreen:noHistoryTitle" />
             </View>
           ) : (
             <View
@@ -241,7 +243,11 @@ export function HomepageScreen() {
                 gap: 32,
               })}
             >
-              <Text size="xl" style={themed({ textAlign: "center" })} text="Game History" />
+              <Text
+                size="xl"
+                style={themed({ textAlign: "center" })}
+                tx="homeScreen:historyTitle"
+              />
               {entries.toReversed().map((entry, index) => (
                 <Card
                   key={index}
@@ -262,7 +268,7 @@ export function HomepageScreen() {
                             size={48}
                             color={theme.colors.sudokuPalette.cellTextAlt}
                           />
-                          <Text size="xs" style={themed($historyStatLabel)} text="Won" />
+                          <Text size="xs" style={themed($historyStatLabel)} tx="common:won" />
                         </View>
                       )}
                       {entry.gameStatus === "lost" && (
@@ -272,7 +278,7 @@ export function HomepageScreen() {
                             size={48}
                             color={theme.colors.sudokuPalette.cellText}
                           />
-                          <Text size="xs" style={themed($historyStatLabel)} text="Lost" />
+                          <Text size="xs" style={themed($historyStatLabel)} tx="common:lost" />
                         </View>
                       )}
                       <View style={themed($historyCol)}>
@@ -284,7 +290,7 @@ export function HomepageScreen() {
                             text={entry.difficulty}
                           />
                         </View>
-                        <Text size="xs" style={themed($historyStatLabel)} text="Difficulty" />
+                        <Text size="xs" style={themed($historyStatLabel)} tx="common:difficulty" />
                       </View>
                       <View style={themed($historyCol)}>
                         <View style={themed($historyStatValueWrapper)}>
@@ -295,7 +301,7 @@ export function HomepageScreen() {
                             text={formatTime(entry.timer)}
                           />
                         </View>
-                        <Text size="xs" style={themed($historyStatLabel)} text="Time" />
+                        <Text size="xs" style={themed($historyStatLabel)} tx="common:time" />
                       </View>
                       <View style={themed($historyCol)}>
                         <View style={themed($historyStatValueWrapper)}>
@@ -306,7 +312,7 @@ export function HomepageScreen() {
                             text={entry.errorCount.toString()}
                           />
                         </View>
-                        <Text size="xs" style={themed($historyStatLabel)} text="Errors" />
+                        <Text size="xs" style={themed($historyStatLabel)} tx="common:mistakes" />
                       </View>
                     </View>
                   }
