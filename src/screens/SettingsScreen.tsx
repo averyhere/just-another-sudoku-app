@@ -19,7 +19,12 @@ import { ThemedStyle } from "@/theme/types"
 export function SettingsScreen() {
   const { themed, theme, platform } = useAppTheme()
 
-  const { defaultDifficulty, setDefaultDifficulty } = useSettingsStore()
+  const {
+    defaultDifficulty,
+    setDefaultDifficulty,
+    applePencilSupportEnabled,
+    setApplePencilSupport,
+  } = useSettingsStore()
   const { clearHistory, seed } = useHistoryStore()
 
   const handleUpdateDefaultDifficulty = (difficulty: Difficulty) => {
@@ -124,6 +129,44 @@ export function SettingsScreen() {
                     })}
                   >
                     <ThemeToggle />
+                  </View>
+                }
+              />
+
+              <Card
+                heading="Apple Pencil Support"
+                style={themed({
+                  width: platform.isPad ? "40%" : "100%",
+                })}
+                ContentComponent={
+                  <View
+                    style={themed({
+                      flexDirection: "row",
+                      alignContent: "center",
+                      justifyContent: "center",
+                      width: "100%",
+                    })}
+                  >
+                    <Button
+                      preset={applePencilSupportEnabled === true ? "filled" : "default"}
+                      onPress={() => setApplePencilSupport(true)}
+                      style={themed({
+                        width: "50%",
+                        borderTopRightRadius: 0,
+                        borderBottomRightRadius: 0,
+                      })}
+                      tx="common:enabled"
+                    />
+                    <Button
+                      preset={applePencilSupportEnabled === false ? "filled" : "default"}
+                      onPress={() => setApplePencilSupport(false)}
+                      style={themed({
+                        width: "50%",
+                        borderLeftWidth: 0,
+                        borderRadius: 0,
+                      })}
+                      tx="common:disabled"
+                    />
                   </View>
                 }
               />

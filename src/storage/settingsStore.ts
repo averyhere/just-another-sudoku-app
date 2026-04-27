@@ -6,6 +6,8 @@ import { persist, createJSONStorage } from "zustand/middleware"
 export interface SettingsStore {
   defaultDifficulty: Difficulty
   setDefaultDifficulty: (difficulty: Difficulty) => void
+  applePencilSupportEnabled: boolean
+  setApplePencilSupport: (isEnabled: boolean) => void
   hasHydrated: boolean // NEW - hydration flag
   setHasHydrated: (state: boolean) => void // NEW - set hydration flag
 }
@@ -35,6 +37,10 @@ export const useSettingsStore = create<SettingsStore>()(
       defaultDifficulty: "easy",
       setDefaultDifficulty: (difficulty: Difficulty) => {
         set({ defaultDifficulty: difficulty })
+      },
+      applePencilSupportEnabled: false,
+      setApplePencilSupport: (enabled: boolean) => {
+        set({ applePencilSupportEnabled: enabled })
       },
       hasHydrated: false,
       setHasHydrated: (state) => set({ hasHydrated: state }),
