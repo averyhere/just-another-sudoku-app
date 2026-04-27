@@ -21,6 +21,8 @@ const ko = {
     light: "라이트",
     dark: "다크",
     clearValue: "값 지우기",
+    enabled: "활성화",
+    disabled: "비활성화",
   },
   homeScreen: {
     noHistoryTitle: "게임 기록이 여기에 표시됩니다.",

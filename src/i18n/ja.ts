@@ -21,6 +21,8 @@ const ja = {
     light: "ライト",
     dark: "ダーク",
     clearValue: "値をクリア",
+    enabled: "有効",
+    disabled: "無効",
   },
   homeScreen: {
     noHistoryTitle: "ゲーム履歴はここに表示されます。",

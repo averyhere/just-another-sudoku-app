@@ -21,6 +21,8 @@ const hi = {
     light: "हल्का",
     dark: "गहरा",
     clearValue: "मान साफ़ करें",
+    enabled: "सक्षम",
+    disabled: "अक्षम",
   },
   homeScreen: {
     noHistoryTitle: "आपका गेम इतिहास यहाँ दिखेगा।",

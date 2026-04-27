@@ -21,6 +21,8 @@ const es = {
     light: "Claro",
     dark: "Oscuro",
     clearValue: "Borrar valor",
+    enabled: "Habilitado",
+    disabled: "Deshabilitado",
   },
   homeScreen: {
     noHistoryTitle: "Tu historial de juegos se mostrará aquí.",

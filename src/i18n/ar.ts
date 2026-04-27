@@ -21,6 +21,8 @@ const ar = {
     light: "فاتح",
     dark: "داكن",
     clearValue: "مسح القيمة",
+    enabled: "مفعل",
+    disabled: "معطل",
   },
   homeScreen: {
     noHistoryTitle: "سيتم عرض سجل ألعابك هنا.",
