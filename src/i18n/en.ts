@@ -1,23 +1,32 @@
 const en = {
   common: {
     ok: "OK!",
+    okay: "Okay",
     cancel: "Cancel",
+    close: "Close",
     back: "Back",
     startButtonText: "Start Game",
     easyLabel: "Easy",
     mediumLabel: "Medium",
     hardLabel: "Hard",
     expertLabel: "Expert",
+    difficulty: "Difficulty",
+    won: "Won",
+    lost: "Lost",
+    time: "Time",
+    mistakes: "Mistakes",
+    loading: "Loading...",
+    noPuzzle: "No puzzle found",
+    system: "System",
+    light: "Light",
+    dark: "Dark",
+    clearValue: "ClearValue",
+    enabled: "Enabled",
+    disabled: "Disabled",
   },
-  welcomeScreen: {
-    postscript:
-      "psst  — This probably isn't what your app looks like. (Unless your designer handed you these screens, and in that case, ship it!)",
-    readyForLaunch: "Your app, almost ready for launch!",
-    exciting: "(ohh, this is exciting!)",
-  },
-  newGameScreen: {
-    title: "Just Another Sudoku",
-    description: "Select the difficulty level for your new game.",
+  homeScreen: {
+    noHistoryTitle: "Your game history will display here.",
+    historyTitle: "Game History",
   },
   settingsScreen: {
     title: "Settings",
@@ -29,6 +38,23 @@ const en = {
       clearHistory: "Clear Score History",
       theme: "Theme",
     },
+    madeWithLove: "This app was developed with ❤️ by Avery Ondo.",
+  },
+  endGameScreen: {
+    congratulations: "Congratulations!",
+    betterLuckNextTime: "Better luck next time!",
+    playAgain: "Play again?",
+  },
+  howToPlayModal: {
+    buttonText: "How to Play",
+    title: "How to play Sudoku",
+    step1title: "1. Understand the Grid",
+    step1desc: "The 9x9 grid is divided into nine 3x3 subgrids.",
+    step2title: "2. Basic Rules:",
+    step2bullet1: "Each row must contain the numbers 1-9, without any repetition.",
+    step2bullet2: "Each column must contain the numbers 1-9, without any repetition.",
+    step2bullet3:
+      "Each of the nine 3x3 subgrids must contain the numbers 1-9, without any repetition.",
   },
   errorScreen: {
     title: "Something went wrong!",

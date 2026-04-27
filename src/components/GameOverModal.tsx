@@ -78,12 +78,16 @@ export function GameOverModal() {
                   {gameStatus === "won" ? (
                     <View style={themed($historyCol)}>
                       <FontAwesome name="trophy" size={48} color={theme.colors.palette.blue} />
-                      <Text size="xl" style={themed($title)} text="Congratulations!" />
+                      <Text size="xl" style={themed($title)} tx="endGameScreen:congratulations" />
                     </View>
                   ) : (
                     <View style={themed($historyCol)}>
                       <FontAwesome name="frown-o" size={48} color="red" />
-                      <Text size="xl" style={themed($title)} text="Better luck next time!" />
+                      <Text
+                        size="xl"
+                        style={themed($title)}
+                        tx="endGameScreen:betterLuckNextTime"
+                      />
                     </View>
                   )}
                 </View>
@@ -94,10 +98,10 @@ export function GameOverModal() {
                         size="xl"
                         adjustsFontSizeToFit
                         style={themed($historyStatValue)}
-                        text={difficulty}
+                        tx={`common:${difficulty!}Label`}
                       />
                     </View>
-                    <Text size="xs" style={themed($historyStatLabel)} text="Difficulty" />
+                    <Text size="xs" style={themed($historyStatLabel)} tx="common:difficulty" />
                   </View>
                   <View style={themed($historyCol)}>
                     <View style={themed($historyStatValueWrapper)}>
@@ -108,7 +112,7 @@ export function GameOverModal() {
                         text={formatTime(timer)}
                       />
                     </View>
-                    <Text size="xs" style={themed($historyStatLabel)} text="Time" />
+                    <Text size="xs" style={themed($historyStatLabel)} tx="common:time" />
                   </View>
                   <View style={themed($historyCol)}>
                     <View style={themed($historyStatValueWrapper)}>
@@ -119,7 +123,7 @@ export function GameOverModal() {
                         text={errorCount.toString()}
                       />
                     </View>
-                    <Text size="xs" style={themed($historyStatLabel)} text="Errors" />
+                    <Text size="xs" style={themed($historyStatLabel)} tx="common:mistakes" />
                   </View>
                 </View>
               </View>
@@ -135,7 +139,11 @@ export function GameOverModal() {
             })}
             ContentComponent={
               <View>
-                <Text size="lg" style={themed({ textAlign: "center" })} text="Play again?" />
+                <Text
+                  size="lg"
+                  style={themed({ textAlign: "center" })}
+                  tx="endGameScreen:playAgain"
+                />
                 <NewGameForm onStartNewGame={() => setShowModal(false)} />
               </View>
             }

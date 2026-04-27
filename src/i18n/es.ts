@@ -1,49 +1,73 @@
-import { Translations } from "./en"
-
-const es: Translations = {
+const es = {
   common: {
-    ok: "OK",
+    ok: "¡OK!",
+    okay: "Vale",
     cancel: "Cancelar",
-    back: "Volver",
-    startButtonText: "Iniciar Juego",
+    close: "Cerrar",
+    back: "Atrás",
+    startButtonText: "Comenzar juego",
     easyLabel: "Fácil",
     mediumLabel: "Medio",
     hardLabel: "Difícil",
     expertLabel: "Experto",
+    difficulty: "Dificultad",
+    won: "Ganado",
+    lost: "Perdido",
+    time: "Tiempo",
+    mistakes: "Errores",
+    loading: "Cargando...",
+    noPuzzle: "No se encontró ningún rompecabezas",
+    system: "Sistema",
+    light: "Claro",
+    dark: "Oscuro",
+    clearValue: "Borrar valor",
+    enabled: "Habilitado",
+    disabled: "Deshabilitado",
   },
-  welcomeScreen: {
-    postscript:
-      "psst — Esto probablemente no es cómo se va a ver tu app. (A menos que tu diseñador te haya enviado estas pantallas, y en ese caso, ¡lánzalas en producción!)",
-    readyForLaunch: "Tu app, casi lista para su lanzamiento",
-    exciting: "(¡ohh, esto es emocionante!)",
-  },
-  newGameScreen: {
-    title: "Nuevo Juego",
-    description: "Selecciona el nivel de dificultad para tu nuevo juego.",
+  homeScreen: {
+    noHistoryTitle: "Tu historial de juegos se mostrará aquí.",
+    historyTitle: "Historial de juegos",
   },
   settingsScreen: {
     title: "Configuración",
-    description: "Personaliza la configuración de tu aplicación.",
+    description: "Personaliza la configuración de la aplicación.",
     labels: {
       language: "Idioma",
-      defaultDifficulty: "Dificultad Predeterminada",
-      clearData: "Borrar Todos los Datos",
-      clearHistory: "Borrar Historial de Puntuaciones",
+      defaultDifficulty: "Dificultad predeterminada",
+      clearData: "Borrar todos los datos",
+      clearHistory: "Borrar historial de puntuaciones",
       theme: "Tema",
     },
+    madeWithLove: "Esta app fue desarrollada con ❤️ por Avery Ondo.",
+  },
+  endGameScreen: {
+    congratulations: "¡Felicidades!",
+    betterLuckNextTime: "¡Mejor suerte la próxima vez!",
+    playAgain: "¿Jugar de nuevo?",
+  },
+  howToPlayModal: {
+    buttonText: "Cómo jugar",
+    title: "Cómo jugar Sudoku",
+    step1title: "1. Entiende la cuadrícula",
+    step1desc: "La cuadrícula de 9x9 se divide en nueve subcuadrículas de 3x3.",
+    step2title: "2. Reglas básicas:",
+    step2bullet1: "Cada fila debe contener los números del 1 al 9, sin repetir.",
+    step2bullet2: "Cada columna debe contener los números del 1 al 9, sin repetir.",
+    step2bullet3:
+      "Cada una de las nueve subcuadrículas de 3x3 debe contener los números del 1 al 9, sin repetir.",
   },
   errorScreen: {
     title: "¡Algo salió mal!",
     friendlySubtitle:
-      "Esta es la pantalla que verán tus usuarios en producción cuando haya un error. Vas a querer personalizar este mensaje (que está ubicado en `app/i18n/es.ts`) y probablemente también su diseño (`app/screens/ErrorScreen`). Si quieres eliminarlo completamente, revisa `app/app.tsx` y el componente <ErrorBoundary>.",
-    reset: "REINICIA LA APP",
+      "Esta es la pantalla que verán tus usuarios cuando ocurra un error. Puedes personalizar este mensaje (ubicado en `app/i18n/es.ts`) y probablemente el diseño también (`app/screens/ErrorScreen`). Si quieres eliminarlo por completo, revisa el componente <ErrorBoundary> en `app/app.tsx`.",
+    reset: "REINICIAR APP",
   },
   emptyStateComponent: {
     generic: {
-      heading: "Muy vacío... muy triste",
+      heading: "Tan vacío... tan triste",
       content:
-        "No se han encontrado datos por el momento. Intenta darle clic en el botón para refrescar o recargar la app.",
-      button: "Intentemos de nuevo",
+        "No se encontraron datos aún. Intenta hacer clic en el botón para actualizar o recargar la app.",
+      button: "Intentémoslo de nuevo",
     },
   },
 }

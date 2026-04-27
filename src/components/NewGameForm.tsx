@@ -86,7 +86,7 @@ export function NewGameForm({ onStartNewGame }: { onStartNewGame?: () => void })
           gap: 16,
         })}
       >
-        <Button preset="3d" onPress={handleNewGame} text="Start Game" />
+        <Button preset="3d" onPress={handleNewGame} tx="common:startButtonText" />
       </View>
       <HowToPlayModal />
     </View>

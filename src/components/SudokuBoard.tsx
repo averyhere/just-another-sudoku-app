@@ -11,11 +11,11 @@ export function SudokuBoard() {
   const { puzzle } = useGameStore()
 
   if (!hasHydrated) {
-    return <Text text="Loading game..." />
+    return <Text tx="common:loading" />
   }
 
   if (!puzzle) {
-    return <Text text="No puzzle found" />
+    return <Text tx="common:noPuzzle" />
   }
 
   return (

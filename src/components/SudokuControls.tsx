@@ -137,7 +137,7 @@ export function SudokuControls() {
             clearPointer()
             handleSetValue("-")
           }}
-          text="Clear Value"
+          tx="common:clearValue"
           style={themed({
             backgroundColor: "transparent",
             borderRadius: 0,

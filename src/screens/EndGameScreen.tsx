@@ -16,6 +16,7 @@ import { useSettingsStore } from "@/storage/settingsStore"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
+import { formatTime } from "@/utils/formatTime"
 
 export function EndGameScreen() {
   const { themed, theme } = useAppTheme()
@@ -24,7 +25,7 @@ export function EndGameScreen() {
 
   const router = useRouter()
 
-  const { newGame, gameStatus, difficulty, errorCount } = useGameStore()
+  const { newGame, gameStatus, timer, difficulty, errorCount } = useGameStore()
 
   const handleNewGame = () => {
     newGame(selectedDifficulty)
@@ -42,9 +43,15 @@ export function EndGameScreen() {
           gap: 64,
         })}
       >
-        <Text size="xl" style={themed({ textAlign: "center" })}>
-          {gameStatus === "won" ? "Congratulations!" : "Better luck next time!"}
-        </Text>
+        <Text
+          size="xl"
+          style={themed({ textAlign: "center" })}
+          tx={
+            gameStatus === "won"
+              ? "endGameScreen:congratulations"
+              : "endGameScreen:betterLuckNextTime"
+          }
+        />
         <View
           style={themed({
             alignContent: "center",
@@ -59,12 +66,12 @@ export function EndGameScreen() {
                 {gameStatus === "won" ? (
                   <View style={themed($historyCol)}>
                     <FontAwesome name="trophy" size={48} color="green" />
-                    <Text size="xs" style={themed($historyStatLabel)} text="Won" />
+                    <Text size="xs" style={themed($historyStatLabel)} tx="common:won" />
                   </View>
                 ) : (
                   <View style={themed($historyCol)}>
                     <FontAwesome name="frown-o" size={48} color="red" />
-                    <Text size="xs" style={themed($historyStatLabel)} text="Lost" />
+                    <Text size="xs" style={themed($historyStatLabel)} tx="common:lost" />
                   </View>
                 )}
                 <View style={themed($historyCol)}>
@@ -76,7 +83,7 @@ export function EndGameScreen() {
                       text={difficulty}
                     />
                   </View>
-                  <Text size="xs" style={themed($historyStatLabel)} text="Difficulty" />
+                  <Text size="xs" style={themed($historyStatLabel)} tx="common:difficulty" />
                 </View>
                 <View style={themed($historyCol)}>
                   <View style={themed($historyStatValueWrapper)}>
@@ -84,10 +91,10 @@ export function EndGameScreen() {
                       size="xl"
                       adjustsFontSizeToFit
                       style={themed($historyStatValue)}
-                      text="test"
+                      text={formatTime(timer)}
                     />
                   </View>
-                  <Text size="xs" style={themed($historyStatLabel)} text="Time" />
+                  <Text size="xs" style={themed($historyStatLabel)} tx="common:time" />
                 </View>
                 <View style={themed($historyCol)}>
                   <View style={themed($historyStatValueWrapper)}>
@@ -98,7 +105,7 @@ export function EndGameScreen() {
                       text={errorCount.toString()}
                     />
                   </View>
-                  <Text size="xs" style={themed($historyStatLabel)} text="Errors" />
+                  <Text size="xs" style={themed($historyStatLabel)} tx="common:mistakes" />
                 </View>
               </View>
             }
@@ -106,7 +113,7 @@ export function EndGameScreen() {
         </View>
 
         <View style={themed({ gap: 8 })}>
-          <Text size="lg" style={themed({ textAlign: "center" })} text="Play again?" />
+          <Text size="lg" style={themed({ textAlign: "center" })} tx="endGameScreen:playAgain" />
 
           <View
             style={themed({
