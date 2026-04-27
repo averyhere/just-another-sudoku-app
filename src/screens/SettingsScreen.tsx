@@ -52,12 +52,13 @@ export function SettingsScreen() {
             <View
               style={themed({
                 flexDirection: platform.isPad ? "row" : "column",
-                gap: 32,
+                gap: platform.isPad ? 64 : 32,
                 justifyContent: "center",
               })}
             >
               <Card
                 heading="Set a default difficulty level"
+                headingStyle={{ paddingInline: 12, marginBottom: 10 }}
                 style={themed({
                   width: platform.isPad ? "40%" : "100%",
                 })}
@@ -68,6 +69,7 @@ export function SettingsScreen() {
                       alignContent: "center",
                       justifyContent: "center",
                       width: "100%",
+                      padding: 12,
                     })}
                   >
                     <Button
@@ -104,7 +106,7 @@ export function SettingsScreen() {
                       preset={defaultDifficulty === "expert" ? "filled" : "default"}
                       onPress={() => setDefaultDifficulty("expert")}
                       style={themed({
-                        width: "25 %",
+                        width: "25%",
                         borderLeftWidth: 0,
                         borderTopLeftRadius: 0,
                         borderBottomLeftRadius: 0,
@@ -117,6 +119,7 @@ export function SettingsScreen() {
 
               <Card
                 heading="Select a color theme"
+                headingStyle={{ paddingInline: 12, marginBottom: 10 }}
                 style={themed({
                   width: platform.isPad ? "40%" : "100%",
                 })}
@@ -124,7 +127,7 @@ export function SettingsScreen() {
                   <View
                     style={themed({
                       gap: 16,
-                      padding: 8,
+                      padding: 12,
                       alignItems: "center",
                     })}
                   >
@@ -132,11 +135,22 @@ export function SettingsScreen() {
                   </View>
                 }
               />
+            </View>
 
+            <View
+              style={themed({
+                flexDirection: platform.isPad ? "row" : "column",
+                width: "100%",
+                gap: platform.isPad ? 64 : 32,
+                justifyContent: "center",
+              })}
+            >
               <Card
                 heading="Apple Pencil Support"
+                headingStyle={{ paddingInline: 12, marginBottom: 16 }}
                 style={themed({
                   width: platform.isPad ? "40%" : "100%",
+                  paddingBlock: 16,
                 })}
                 ContentComponent={
                   <View
@@ -145,6 +159,7 @@ export function SettingsScreen() {
                       alignContent: "center",
                       justifyContent: "center",
                       width: "100%",
+                      padding: 12,
                     })}
                   >
                     <Button
@@ -163,30 +178,24 @@ export function SettingsScreen() {
                       style={themed({
                         width: "50%",
                         borderLeftWidth: 0,
-                        borderRadius: 0,
+                        borderTopLeftRadius: 0,
+                        borderBottomLeftRadius: 0,
                       })}
                       tx="common:disabled"
                     />
                   </View>
                 }
               />
-            </View>
 
-            <View
-              style={themed({
-                flexDirection: platform.isPad ? "row" : "column",
-                width: "100%",
-                gap: 32,
-                justifyContent: "center",
-              })}
-            >
               <Card
                 heading="Manage my data"
+                headingStyle={{ paddingInline: 12, marginBottom: 16 }}
                 style={themed({
                   width: platform.isPad ? "40%" : "100%",
+                  paddingBlock: 16,
                 })}
                 ContentComponent={
-                  <View style={themed({ gap: 16, padding: 8 })}>
+                  <View style={themed({ gap: 16, padding: 12 })}>
                     <View
                       style={themed({
                         flexDirection: "row",
@@ -202,44 +211,44 @@ export function SettingsScreen() {
                   </View>
                 }
               />
+            </View>
 
+            <View
+              style={themed({
+                gap: 16,
+                padding: 8,
+                width: "100%",
+              })}
+            >
+              <Text style={themed({ textAlign: "center" })}>🏳️‍🌈🏳️‍⚧️✌🏼❤️</Text>
+              <Text
+                size="xs"
+                style={themed({ textAlign: "center" })}
+                tx="settingsScreen:madeWithLove"
+              />
               <View
                 style={themed({
-                  gap: 16,
-                  padding: 8,
-                  width: platform.isPad ? "40%" : "100%",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  gap: 4,
                 })}
               >
-                <Text style={themed({ textAlign: "center" })}>🏳️‍🌈🏳️‍⚧️✌🏼❤️</Text>
-                <Text
-                  size="xs"
-                  style={themed({ textAlign: "center" })}
-                  tx="settingsScreen:madeWithLove"
-                />
-                <View
-                  style={themed({
-                    flexDirection: "row",
-                    justifyContent: "center",
-                    gap: 4,
-                  })}
+                <Link
+                  href="https://github.com/averyhere/just-another-sudoku-app"
+                  style={themed({ padding: 8 })}
                 >
-                  <Link
-                    href="https://github.com/averyhere/just-another-sudoku-app"
-                    style={themed({ padding: 8 })}
-                  >
-                    <FontAwesome name="github" size={24} color={theme.colors.tint} />
-                  </Link>
-                  <Link href="https://averyhere.com" style={themed({ padding: 8 })}>
-                    <FontAwesome name="link" size={24} color={theme.colors.tint} />
-                  </Link>
-                  <Link href="https://www.linkedin.com/in/averyondo" style={themed({ padding: 8 })}>
-                    <FontAwesome name="linkedin" size={24} color={theme.colors.tint} />
-                  </Link>
-                </View>
-                <Text style={themed({ textAlign: "center" })} size="xxs">
-                  &copy; {new Date().getFullYear()} Avery Ondo.
-                </Text>
+                  <FontAwesome name="github" size={24} color={theme.colors.tint} />
+                </Link>
+                <Link href="https://averyhere.com" style={themed({ padding: 8 })}>
+                  <FontAwesome name="link" size={24} color={theme.colors.tint} />
+                </Link>
+                <Link href="https://www.linkedin.com/in/averyondo" style={themed({ padding: 8 })}>
+                  <FontAwesome name="linkedin" size={24} color={theme.colors.tint} />
+                </Link>
               </View>
+              <Text style={themed({ textAlign: "center" })} size="xxs">
+                &copy; {new Date().getFullYear()} Avery Ondo.
+              </Text>
             </View>
           </View>
 
