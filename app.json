@@ -24,6 +24,7 @@
       "edgeToEdgeEnabled": true
     },
     "ios": {
+      "buildNumber": 2,
       "icon": {
         "light":  "./assets/images/ios-light.png",
         "dark": "./assets/images/ios-dark.png",
