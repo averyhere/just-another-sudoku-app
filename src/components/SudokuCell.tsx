@@ -142,7 +142,7 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
         editable={originalPuzzle![cellIndex] === "-"}
         readOnly={originalPuzzle![cellIndex] !== "-"}
         disableKeyboardShortcuts={true}
-        showSoftInputOnFocus={true}
+        showSoftInputOnFocus={false}
         selectTextOnFocus={true}
         aria-label={`Row ${cellCoords.row + 1} Column ${cellCoords.col + 1}`}
         onPressIn={() => {
