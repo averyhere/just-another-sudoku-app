@@ -1,4 +1,4 @@
-// In your React component
+// import { Keyboard } from "react-native"
 import { Button } from "@/components/Button"
 import { TextField } from "@/components/TextField"
 import { useGameStore, useGameStoreHydration } from "@/storage/gameStore"
@@ -139,7 +139,7 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
         caretHidden={true}
         selectionColor={cellBgColor}
         selectionHandleColor={cellBgColor}
-        editable={originalPuzzle![cellIndex] === "-"}
+        editable={false}
         readOnly={originalPuzzle![cellIndex] !== "-"}
         disableKeyboardShortcuts={true}
         showSoftInputOnFocus={false}
