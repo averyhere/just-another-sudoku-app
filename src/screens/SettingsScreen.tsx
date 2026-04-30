@@ -1,12 +1,8 @@
-// In your React component
 import { View, ViewStyle, ScrollView } from "react-native"
 import { Link } from "expo-router"
 import FontAwesome from "@expo/vector-icons/FontAwesome"
 import { SafeAreaView } from "react-native-safe-area-context"
-import { Difficulty } from "sudoku-gen/dist/types/difficulty.type"
-
 import { Button } from "@/components/Button"
-import { Card } from "@/components/Card"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import { ThemeToggle } from "@/components/ThemeToggle"
@@ -20,11 +16,7 @@ export function SettingsScreen() {
   const { themed, theme, platform } = useAppTheme()
 
   const { defaultDifficulty, setDefaultDifficulty } = useSettingsStore()
-  const { clearHistory, seed } = useHistoryStore()
-
-  const handleUpdateDefaultDifficulty = (difficulty: Difficulty) => {
-    setDefaultDifficulty(difficulty)
-  }
+  const { clearHistory } = useHistoryStore()
 
   return (
     <Screen contentContainerStyle={$styles.flex1}>
@@ -46,124 +38,86 @@ export function SettingsScreen() {
           <View style={themed($bottomContainer)}>
             <View
               style={themed({
-                flexDirection: platform.isPad ? "row" : "column",
+                flexDirection: "column",
                 gap: platform.isPad ? 64 : 32,
                 justifyContent: "center",
               })}
             >
-              <Card
-                heading="Set a default difficulty level"
-                headingStyle={{ paddingInline: 12, marginBottom: 10 }}
-                style={themed({
-                  width: platform.isPad ? "40%" : "100%",
-                })}
-                ContentComponent={
+              <View>
+                <Text size="lg" tx="settingsScreen:labels.defaultDifficulty" />
+                <View
+                  style={themed({
+                    flexDirection: "row",
+                    alignContent: "center",
+                    justifyContent: "center",
+                    width: "100%",
+                  })}
+                >
+                  <Button
+                    preset={defaultDifficulty === "easy" ? "filled" : "default"}
+                    onPress={() => setDefaultDifficulty("easy")}
+                    style={themed({
+                      width: "25%",
+                      borderTopRightRadius: 0,
+                      borderBottomRightRadius: 0,
+                    })}
+                    tx="common:easyLabel"
+                  />
+                  <Button
+                    preset={defaultDifficulty === "medium" ? "filled" : "default"}
+                    onPress={() => setDefaultDifficulty("medium")}
+                    style={themed({
+                      width: "25%",
+                      borderLeftWidth: 0,
+                      borderRadius: 0,
+                    })}
+                    tx="common:mediumLabel"
+                  />
+                  <Button
+                    preset={defaultDifficulty === "hard" ? "filled" : "default"}
+                    onPress={() => setDefaultDifficulty("hard")}
+                    style={themed({
+                      width: "25%",
+                      borderLeftWidth: 0,
+                      borderRadius: 0,
+                    })}
+                    tx="common:hardLabel"
+                  />
+                  <Button
+                    preset={defaultDifficulty === "expert" ? "filled" : "default"}
+                    onPress={() => setDefaultDifficulty("expert")}
+                    style={themed({
+                      width: "25%",
+                      borderLeftWidth: 0,
+                      borderTopLeftRadius: 0,
+                      borderBottomLeftRadius: 0,
+                    })}
+                    tx="common:expertLabel"
+                  />
+                </View>
+              </View>
+
+              <View>
+                <Text size="lg" tx="settingsScreen:labels.theme" />
+                <ThemeToggle />
+              </View>
+
+              <View>
+                <View style={themed({ gap: 16, padding: 12 })}>
                   <View
                     style={themed({
                       flexDirection: "row",
-                      alignContent: "center",
-                      justifyContent: "center",
-                      width: "100%",
-                      padding: 12,
-                    })}
-                  >
-                    <Button
-                      preset={defaultDifficulty === "easy" ? "filled" : "default"}
-                      onPress={() => setDefaultDifficulty("easy")}
-                      style={themed({
-                        width: "25%",
-                        borderTopRightRadius: 0,
-                        borderBottomRightRadius: 0,
-                      })}
-                      tx="common:easyLabel"
-                    />
-                    <Button
-                      preset={defaultDifficulty === "medium" ? "filled" : "default"}
-                      onPress={() => setDefaultDifficulty("medium")}
-                      style={themed({
-                        width: "25%",
-                        borderLeftWidth: 0,
-                        borderRadius: 0,
-                      })}
-                      tx="common:mediumLabel"
-                    />
-                    <Button
-                      preset={defaultDifficulty === "hard" ? "filled" : "default"}
-                      onPress={() => setDefaultDifficulty("hard")}
-                      style={themed({
-                        width: "25%",
-                        borderLeftWidth: 0,
-                        borderRadius: 0,
-                      })}
-                      tx="common:hardLabel"
-                    />
-                    <Button
-                      preset={defaultDifficulty === "expert" ? "filled" : "default"}
-                      onPress={() => setDefaultDifficulty("expert")}
-                      style={themed({
-                        width: "25%",
-                        borderLeftWidth: 0,
-                        borderTopLeftRadius: 0,
-                        borderBottomLeftRadius: 0,
-                      })}
-                      tx="common:expertLabel"
-                    />
-                  </View>
-                }
-              />
-
-              <Card
-                heading="Select a color theme"
-                headingStyle={{ paddingInline: 12, marginBottom: 10 }}
-                style={themed({
-                  width: platform.isPad ? "40%" : "100%",
-                })}
-                ContentComponent={
-                  <View
-                    style={themed({
-                      gap: 16,
-                      padding: 12,
+                      justifyContent: "space-between",
                       alignItems: "center",
                     })}
                   >
-                    <ThemeToggle />
+                    <Text size="lg" tx="settingsScreen:labels.clearHistory" />
+                    <Button preset="cell" onPress={clearHistory}>
+                      <FontAwesome name="history" size={24} color={theme.colors.tint} />
+                    </Button>
                   </View>
-                }
-              />
-            </View>
-
-            <View
-              style={themed({
-                flexDirection: platform.isPad ? "row" : "column",
-                width: "100%",
-                gap: platform.isPad ? 64 : 32,
-                justifyContent: "center",
-              })}
-            >
-              <Card
-                heading="Manage my data"
-                headingStyle={{ paddingInline: 12, marginBottom: 16 }}
-                style={themed({
-                  width: platform.isPad ? "40%" : "100%",
-                  paddingBlock: 16,
-                })}
-                ContentComponent={
-                  <View style={themed({ gap: 16, padding: 12 })}>
-                    <View
-                      style={themed({
-                        flexDirection: "row",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                      })}
-                    >
-                      <Text size="lg" tx="settingsScreen:labels.clearHistory" />
-                      <Button preset="cell" onPress={clearHistory}>
-                        <FontAwesome name="history" size={24} color={theme.colors.tint} />
-                      </Button>
-                    </View>
-                  </View>
-                }
-              />
+                </View>
+              </View>
             </View>
 
             <View
@@ -204,45 +158,6 @@ export function SettingsScreen() {
               </Text>
             </View>
           </View>
-
-          {/* {process.env.NODE_ENV === "development" && (
-            <View
-              style={themed({
-                flexDirection: platform.isPad ? "row" : "column",
-                gap: 32,
-                justifyContent: "center",
-              })}
-            >
-              <Card
-                heading="Development Tools"
-                style={themed({
-                  width: platform.isPad ? "40%" : "100%",
-                })}
-                headingStyle={{ color: theme.colors.error }}
-                ContentComponent={
-                  <View
-                    style={themed({
-                      gap: 16,
-                      padding: 8,
-                    })}
-                  >
-                    <View
-                      style={themed({
-                        flexDirection: "row",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                      })}
-                    >
-                      <Text size="lg" text="Seed History" />
-                      <Button preset="cell" onPress={seed}>
-                        <FontAwesome name="database" size={24} color={theme.colors.text} />
-                      </Button>
-                    </View>
-                  </View>
-                }
-              />
-            </View>
-          )} */}
         </SafeAreaView>
       </ScrollView>
     </Screen>
@@ -258,7 +173,9 @@ const $topContainer: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 
 const $bottomContainer: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   width: "100%",
+  height: "100%",
   gap: 32,
-  flexWrap: "wrap",
-  padding: spacing.sm,
+  flexDirection: "column",
+  justifyContent: "space-between",
+  padding: spacing.lg,
 })
