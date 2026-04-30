@@ -103,7 +103,7 @@ export function SettingsScreen() {
               </View>
 
               <View>
-                <View style={themed({ gap: 16, padding: 12 })}>
+                <View style={themed({ gap: 16 })}>
                   <View
                     style={themed({
                       flexDirection: "row",
