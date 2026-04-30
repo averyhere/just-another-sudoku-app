@@ -26,7 +26,9 @@
     "build:android:sim": "eas build --profile development --platform android --local",
     "build:android:dev": "eas build --profile development:device --platform android --local",
     "build:android:preview": "eas build --profile preview --platform android --local",
-    "build:android:prod": "eas build --profile production --platform android --local"
+    "build:android:prod": "eas build --profile production --platform android --local",
+    "build:ios": "eas build --platform ios --profile production",
+    "submit:ios": "eas submit --platform ios"
   },
   "dependencies": {
     "@expo-google-fonts/lexend-deca": "^0.4.0",
