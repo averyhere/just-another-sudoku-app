@@ -121,7 +121,8 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
   }
 
   const handleInputChange = (newVal: string) => {
-    if (newVal === "") {
+    const clearValues = ["", "-", "X", "x"]
+    if (clearValues.includes(newVal)) {
       handleSetValue("-")
       return
     }
@@ -140,6 +141,8 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
       caretHidden={true}
       disableKeyboardShortcuts={true}
       showSoftInputOnFocus={false}
+      keyboardType="numeric"
+      maxLength={1}
       aria-label={`Row ${cellCoords.row + 1} Column ${cellCoords.col + 1}`}
       onPressIn={() => {
         setPointer(cellIndex)
