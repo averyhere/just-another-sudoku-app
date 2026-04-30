@@ -76,6 +76,7 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
 
     // Game over: Won
     if (newPuzzle.join("") === solution.join("")) {
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
       pause()
       addEntry({
         date: new Date(),
@@ -88,12 +89,12 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
         gameStatus: "won",
       })
       setGameStatus("won")
-      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
       return
     }
 
     // Game over: Lost
     if (newPuzzle[pointer.index] !== solution[pointer.index] && value !== "-") {
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error)
       incrementErrorCount()
       // note: 4 because this makes it "on the fifth mistake"
       if (difficulty !== "easy" && errorCount >= 4) {
@@ -109,16 +110,13 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
           gameStatus: "lost",
         })
         setGameStatus("lost")
-        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error)
       }
       return
     }
 
-    // Correct or incorrect but not game over
-    if (newPuzzle[pointer.index] === solution[pointer.index]) {
+    // Correct but not game over
+    if (newPuzzle[pointer.index] === solution[pointer.index] && value !== "-") {
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-    } else {
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)
     }
   }
 
