@@ -90,7 +90,7 @@ export function SudokuScreen() {
               alignItems: "center",
               justifyContent: "center",
               flexGrow: 1,
-              gap: 64,
+              gap: 16,
             })}
           >
             <View style={themed($gameboardLayout)}>
