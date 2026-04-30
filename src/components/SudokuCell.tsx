@@ -140,9 +140,6 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
       caretHidden={true}
       disableKeyboardShortcuts={true}
       showSoftInputOnFocus={false}
-      // selectionColor={cellBgColor}
-      // selectionHandleColor={cellBgColor}
-      // selectTextOnFocus={true}
       aria-label={`Row ${cellCoords.row + 1} Column ${cellCoords.col + 1}`}
       onPressIn={() => {
         setPointer(cellIndex)
