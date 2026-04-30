@@ -134,7 +134,7 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
     <TextField
       defaultValue={val === "-" ? "" : val.toString()}
       value={val === "-" ? "" : val.toString()}
-      editable={originalPuzzle![cellIndex] !== "-"}
+      editable={originalPuzzle![cellIndex] === "-"}
       inputMode="none"
       contextMenuHidden={true}
       caretHidden={true}
