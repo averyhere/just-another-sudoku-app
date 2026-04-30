@@ -147,7 +147,7 @@ const $defaultLayout: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 
 const $padPortraitLayout: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   width: "100%",
-  maxWidth: 768,
+  maxWidth: 700,
 })
 
 const $padLandscapeLayout: ThemedStyle<ViewStyle> = ({ spacing }) => ({
