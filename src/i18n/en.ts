@@ -24,6 +24,11 @@ const en = {
     enabled: "Enabled",
     disabled: "Disabled",
   },
+  tabs: {
+    dashboard: "Dashboard",
+    gameboard: "Play Sudoku",
+    settings: "Settings",
+  },
   homeScreen: {
     noHistoryTitle: "Your game history will display here.",
     historyTitle: "Game History",

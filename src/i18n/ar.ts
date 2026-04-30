@@ -24,6 +24,11 @@ const ar = {
     enabled: "مفعل",
     disabled: "معطل",
   },
+  tabs: {
+    dashboard: "لوحة القيادة",
+    gameboard: "العب سودوكو",
+    settings: "الإعدادات",
+  },
   homeScreen: {
     noHistoryTitle: "سيتم عرض سجل ألعابك هنا.",
     historyTitle: "سجل الألعاب",

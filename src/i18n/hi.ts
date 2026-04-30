@@ -24,6 +24,11 @@ const hi = {
     enabled: "सक्षम",
     disabled: "अक्षम",
   },
+  tabs: {
+    dashboard: "डैशबोर्ड",
+    gameboard: "सुडोकू खेलें",
+    settings: "सेटिंग्स",
+  },
   homeScreen: {
     noHistoryTitle: "आपका गेम इतिहास यहाँ दिखेगा।",
     historyTitle: "गेम इतिहास",

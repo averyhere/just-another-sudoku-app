@@ -24,6 +24,11 @@ const ko = {
     enabled: "활성화",
     disabled: "비활성화",
   },
+  tabs: {
+    dashboard: "대시보드",
+    gameboard: "스도쿠 플레이",
+    settings: "설정",
+  },
   homeScreen: {
     noHistoryTitle: "게임 기록이 여기에 표시됩니다.",
     historyTitle: "게임 기록",

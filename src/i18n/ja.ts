@@ -24,6 +24,11 @@ const ja = {
     enabled: "有効",
     disabled: "無効",
   },
+  tabs: {
+    dashboard: "ダッシュボード",
+    gameboard: "数独をプレイ",
+    settings: "設定",
+  },
   homeScreen: {
     noHistoryTitle: "ゲーム履歴はここに表示されます。",
     historyTitle: "ゲーム履歴",
