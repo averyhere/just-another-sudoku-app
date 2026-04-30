@@ -1,4 +1,5 @@
 import { View, ViewStyle } from "react-native"
+import * as Haptics from "expo-haptics"
 import { SafeAreaView } from "react-native-safe-area-context"
 import type { ThemedStyle } from "@/theme/types"
 import { GameOverModal } from "@/components/GameOverModal"
@@ -111,7 +112,10 @@ export function SudokuScreen() {
                 <Button
                   preset="default"
                   text={`Move Controls ${controlsLeft ? "Right" : "Left"}`}
-                  onPress={() => setControlsLeft(!controlsLeft)}
+                  onPress={() => {
+                    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)
+                    setControlsLeft(!controlsLeft)
+                  }}
                 />
               </View>
             )}
