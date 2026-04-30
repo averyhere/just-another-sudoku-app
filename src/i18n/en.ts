@@ -20,7 +20,7 @@ const en = {
     system: "System",
     light: "Light",
     dark: "Dark",
-    clearValue: "ClearValue",
+    clearValue: "Clear Value",
     enabled: "Enabled",
     disabled: "Disabled",
   },
