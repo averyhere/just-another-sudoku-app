@@ -19,12 +19,7 @@ import { ThemedStyle } from "@/theme/types"
 export function SettingsScreen() {
   const { themed, theme, platform } = useAppTheme()
 
-  const {
-    defaultDifficulty,
-    setDefaultDifficulty,
-    applePencilSupportEnabled,
-    setApplePencilSupport,
-  } = useSettingsStore()
+  const { defaultDifficulty, setDefaultDifficulty } = useSettingsStore()
   const { clearHistory, seed } = useHistoryStore()
 
   const handleUpdateDefaultDifficulty = (difficulty: Difficulty) => {
@@ -145,48 +140,6 @@ export function SettingsScreen() {
                 justifyContent: "center",
               })}
             >
-              <Card
-                heading="Apple Pencil Support"
-                headingStyle={{ paddingInline: 12, marginBottom: 16 }}
-                style={themed({
-                  width: platform.isPad ? "40%" : "100%",
-                  paddingBlock: 16,
-                })}
-                ContentComponent={
-                  <View
-                    style={themed({
-                      flexDirection: "row",
-                      alignContent: "center",
-                      justifyContent: "center",
-                      width: "100%",
-                      padding: 12,
-                    })}
-                  >
-                    <Button
-                      preset={applePencilSupportEnabled === true ? "filled" : "default"}
-                      onPress={() => setApplePencilSupport(true)}
-                      style={themed({
-                        width: "50%",
-                        borderTopRightRadius: 0,
-                        borderBottomRightRadius: 0,
-                      })}
-                      tx="common:enabled"
-                    />
-                    <Button
-                      preset={applePencilSupportEnabled === false ? "filled" : "default"}
-                      onPress={() => setApplePencilSupport(false)}
-                      style={themed({
-                        width: "50%",
-                        borderLeftWidth: 0,
-                        borderTopLeftRadius: 0,
-                        borderBottomLeftRadius: 0,
-                      })}
-                      tx="common:disabled"
-                    />
-                  </View>
-                }
-              />
-
               <Card
                 heading="Manage my data"
                 headingStyle={{ paddingInline: 12, marginBottom: 16 }}
