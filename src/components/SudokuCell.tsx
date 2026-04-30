@@ -1,7 +1,3 @@
-// import { Keyboard } from "react-native"
-// import { View } from "react-native"
-// import { Text } from "@/components/Text"
-// import { Button } from "@/components/Button"
 import { TextField } from "@/components/TextField"
 import { useGameStore, useGameStoreHydration } from "@/storage/gameStore"
 import { useSettingsStore } from "@/storage/settingsStore"
@@ -21,16 +17,13 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
     solution,
     setPuzzle,
     setPointer,
-    clearPointer,
     incrementErrorCount,
     isPaused,
     timer,
-    gameStatus,
     errorCount,
     resume,
     setGameStatus,
   } = useGameStore()
-  const { applePencilSupportEnabled } = useSettingsStore()
 
   if (!hasHydrated || !puzzle) {
     return null
@@ -39,10 +32,6 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
   const cellCoords = {
     row: Math.floor(cellIndex / 9),
     col: cellIndex % 9,
-  }
-
-  const handleCellPress = () => {
-    setPointer(cellIndex)
   }
 
   const defaultBg =
@@ -76,8 +65,8 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
     if (!puzzle) return
     if (!value) return
     if (!pointer) return
-    if (originalPuzzle![pointer.index] !== "-") return
     if (!solution) return
+    if (originalPuzzle![pointer.index] !== "-") return
 
     if (isPaused) resume()
 
@@ -181,91 +170,4 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
       })}
     />
   )
-
-  // if (platform.isPad && applePencilSupportEnabled) {
-  //   return (
-  //     <TextField
-  //       defaultValue={val === "-" ? "" : val.toString()}
-  //       value={val === "-" ? "" : val.toString()}
-  //       keyboardType="number-pad"
-  //       inputMode="numeric"
-  //       contextMenuHidden={true}
-  //       caretHidden={true}
-  //       selectionColor={cellBgColor}
-  //       selectionHandleColor={cellBgColor}
-  //       editable={false}
-  //       readOnly={originalPuzzle![cellIndex] !== "-"}
-  //       disableKeyboardShortcuts={true}
-  //       showSoftInputOnFocus={false}
-  //       selectTextOnFocus={true}
-  //       aria-label={`Row ${cellCoords.row + 1} Column ${cellCoords.col + 1}`}
-  //       onPressIn={() => {
-  //         handleCellPress()
-  //       }}
-  //       onChange={(e) => {
-  //         handleInputChange(e.nativeEvent.text)
-  //       }}
-  //       containerStyle={themed({
-  //         aspectRatio: 1,
-  //         width: "11.111%",
-  //         height: "11.111%",
-  //         alignContent: "center",
-  //         justifyContent: "center",
-  //         padding: 0,
-  //       })}
-  //       inputWrapperStyle={themed({
-  //         height: "100%",
-  //         width: "100%",
-  //         borderRadius: 0,
-  //         borderColor: theme.colors.border,
-  //         borderStyle: "solid",
-  //         borderWidth: 1,
-  //         borderLeftWidth: cellCoords.col % 3 === 0 ? 1 : 0.25,
-  //         borderRightWidth: cellCoords.col % 3 === 2 ? 1 : 0.25,
-  //         borderTopWidth: cellCoords.row % 3 === 0 ? 1 : 0.25,
-  //         borderBottomWidth: cellCoords.row % 3 === 2 ? 1 : 0.25,
-  //         backgroundColor: cellBgColor,
-  //       })}
-  //       style={themed({
-  //         fontSize: platform.isPad && platform.isPortrait ? 52 : 32,
-  //         lineHeight: platform.isPad && platform.isPortrait ? 52 : 32,
-  //         fontFamily: "LexendDeca_200ExtraLight",
-  //         height: "100%",
-  //         textAlign: "center",
-  //         fontWeight: 200,
-  //       })}
-  //     />
-  //   )
-  // }
-
-  // return (
-  //   <Button
-  //     preset="cell"
-  //     onPress={() => handleCellPress()}
-  //     style={themed({
-  //       borderColor: theme.colors.border,
-  //       borderStyle: "solid",
-  //       borderLeftWidth: cellCoords.col % 3 === 0 ? 1 : 0.25,
-  //       borderRightWidth: cellCoords.col % 3 === 2 ? 1 : 0.25,
-  //       borderTopWidth: cellCoords.row % 3 === 0 ? 1 : 0.25,
-  //       borderBottomWidth: cellCoords.row % 3 === 2 ? 1 : 0.25,
-  //       backgroundColor: isWrong
-  //         ? theme.colors.palette.pink
-  //         : isSelected
-  //           ? theme.colors.sudokuPalette.cellSelectedBg
-  //           : isHighlighted
-  //             ? theme.colors.sudokuPalette.cellHighlightedBg
-  //             : isHighlightedAlt
-  //               ? theme.colors.sudokuPalette.cellHighlightedBgAlt
-  //               : defaultBg,
-  //     })}
-  //     textStyle={themed({
-  //       fontSize: platform.isPad && platform.isPortrait ? 52 : 32,
-  //       lineHeight: platform.isPad && platform.isPortrait ? 68 : 40,
-  //       fontFamily: "LexendDeca_200ExtraLight",
-  //       fontWeight: 200,
-  //     })}
-  //     text={val === "-" ? "" : val.toString()}
-  //   />
-  // )
 }
