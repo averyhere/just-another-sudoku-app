@@ -1,4 +1,4 @@
-import { View, ViewStyle, ScrollView } from "react-native"
+import { View, ViewStyle, ScrollView, ActivityIndicator } from "react-native"
 import { Link } from "expo-router"
 import FontAwesome from "@expo/vector-icons/FontAwesome"
 import { SafeAreaView } from "react-native-safe-area-context"
@@ -15,8 +15,17 @@ import { ThemedStyle } from "@/theme/types"
 export function SettingsScreen() {
   const { themed, theme, platform } = useAppTheme()
 
-  const { defaultDifficulty, setDefaultDifficulty } = useSettingsStore()
-  const { clearHistory } = useHistoryStore()
+  const { defaultDifficulty, setDefaultDifficulty, hasHydrated } = useSettingsStore()
+  const { clearHistory, hasHydrated: historyHasHydrated } = useHistoryStore()
+
+  if (!hasHydrated || !historyHasHydrated) {
+    return (
+      <View>
+        <ActivityIndicator size="large" color={theme.colors.tint} />
+        <Text tx="common:loading" />
+      </View>
+    )
+  }
 
   return (
     <Screen contentContainerStyle={$styles.flex1}>

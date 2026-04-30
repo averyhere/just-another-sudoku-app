@@ -1,4 +1,4 @@
-import { View, ViewStyle } from "react-native"
+import { View, ViewStyle, ActivityIndicator } from "react-native"
 import * as Haptics from "expo-haptics"
 import { SafeAreaView } from "react-native-safe-area-context"
 import type { ThemedStyle } from "@/theme/types"
@@ -23,7 +23,12 @@ export function SudokuScreen() {
   const [controlsLeft, setControlsLeft] = useState<boolean>(false)
 
   if (!hasHydrated) {
-    return <Text tx="common:loading" />
+    return (
+      <View>
+        <ActivityIndicator size="large" color={theme.colors.tint} />
+        <Text tx="common:loading" />
+      </View>
+    )
   }
 
   const $gameboardLayout =
