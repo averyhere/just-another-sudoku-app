@@ -134,7 +134,7 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
     <TextField
       defaultValue={val === "-" ? "" : val.toString()}
       value={val === "-" ? "" : val.toString()}
-      editable={false}
+      editable={originalPuzzle![cellIndex] !== "-"}
       inputMode="none"
       contextMenuHidden={true}
       caretHidden={true}
@@ -142,7 +142,6 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
       showSoftInputOnFocus={false}
       // selectionColor={cellBgColor}
       // selectionHandleColor={cellBgColor}
-      // readOnly={originalPuzzle![cellIndex] !== "-"}
       // selectTextOnFocus={true}
       aria-label={`Row ${cellCoords.row + 1} Column ${cellCoords.col + 1}`}
       onPress={() => {
