@@ -21,10 +21,9 @@
         "backgroundColor": "#171717"
       },
       "allowBackup": false,
-      "edgeToEdgeEnabled": true
     },
     "ios": {
-      "buildNumber": "4",
+      "buildNumber": "6",
       "icon": {
         "light":  "./assets/images/ios-light.png",
         "dark": "./assets/images/ios-dark.png",
