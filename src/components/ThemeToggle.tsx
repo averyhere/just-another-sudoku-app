@@ -57,7 +57,8 @@ export function ThemeToggle(_props: ThemeToggleProps) {
         style={themed({
           width: "33.333%",
           borderLeftWidth: 0,
-          borderRadius: 0,
+          borderTopLeftRadius: 0,
+          borderBottomLeftRadius: 0,
         })}
         tx="common:dark"
       />
