@@ -2,13 +2,12 @@ import { View } from "react-native"
 import { BlurView } from "expo-blur"
 import { Tabs } from "expo-router"
 import FontAwesome from "@expo/vector-icons/FontAwesome"
-import { useTranslation } from "react-i18next"
+import { translate as tx } from "@/i18n/translate"
 import { Logo } from "@/components/Logo"
 import { useAppTheme } from "@/theme/context"
 
 export default function TabLayout() {
   const { theme, themed } = useAppTheme()
-  const { t } = useTranslation()
 
   return (
     <Tabs
@@ -34,8 +33,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: t("tabs.dashboard"),
-          tabBarAccessibilityLabel: t("tabs.dashboard"),
+          title: tx("tabs:dashboard"),
+          tabBarAccessibilityLabel: tx("tabs:dashboard"),
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="dashboard" color={color} />,
           headerShown: false,
         }}
@@ -43,8 +42,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="gameboard"
         options={{
-          title: t("tabs.gameboard"),
-          tabBarAccessibilityLabel: t("tabs.gameboard"),
+          title: tx("tabs:gameboard"),
+          tabBarAccessibilityLabel: tx("tabs:gameboard"),
           tabBarIcon: ({ focused }) => <Logo size={36} variant={focused ? "color" : "tinted"} />,
           headerShown: false,
         }}
@@ -52,8 +51,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="settings"
         options={{
-          title: t("tabs.settings"),
-          tabBarAccessibilityLabel: t("tabs.settings"),
+          title: tx("tabs:settings"),
+          tabBarAccessibilityLabel: tx("tabs:settings"),
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
           headerShown: false,
         }}
