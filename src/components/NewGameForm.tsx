@@ -30,7 +30,7 @@ export function NewGameForm({ onStartNewGame }: { onStartNewGame?: () => void })
 
   return (
     <View style={themed({ gap: 16 })}>
-      <Text size="xs" style={themed({ textAlign: "center" })} tx="newGameScreen:description" />
+      <Text size="xs" style={themed({ textAlign: "center" })} tx="common:difficulty" />
 
       <View
         style={themed({
