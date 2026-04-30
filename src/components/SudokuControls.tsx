@@ -105,7 +105,7 @@ export function SudokuControls() {
             })}
             pressedStyle={themed({
               backgroundColor: theme.colors.sudokuPalette.cellBackgroundAlt,
-              paddingTop: 16,
+              paddingBottom: 16,
             })}
             disabledStyle={themed({
               opacity: 0.35,
@@ -181,7 +181,7 @@ const $numPadLayout: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 })
 const $defaultButton: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   width: "11.111%",
-  aspectRatio: 1 / 2,
+  aspectRatio: 1 / 1.5,
   borderRadius: 0,
   alignItems: "center",
   justifyContent: "center",
