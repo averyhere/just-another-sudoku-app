@@ -146,7 +146,7 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
       // selectionHandleColor={cellBgColor}
       // selectTextOnFocus={true}
       aria-label={`Row ${cellCoords.row + 1} Column ${cellCoords.col + 1}`}
-      onPress={() => {
+      onPressIn={() => {
         setPointer(cellIndex)
       }}
       onChange={(e) => {
@@ -172,14 +172,17 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
         borderTopWidth: cellCoords.row % 3 === 0 ? 1 : 0.25,
         borderBottomWidth: cellCoords.row % 3 === 2 ? 1 : 0.25,
         backgroundColor: cellBgColor,
+        padding: 0,
       })}
       style={themed({
+        width: "100%",
+        height: "100%",
         fontSize: platform.isPad && platform.isPortrait ? 52 : 32,
         lineHeight: platform.isPad && platform.isPortrait ? 52 : 32,
         fontFamily: "LexendDeca_200ExtraLight",
-        height: "100%",
         textAlign: "center",
         fontWeight: 200,
+        padding: 0,
       })}
     />
   )
