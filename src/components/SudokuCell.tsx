@@ -126,7 +126,17 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
       handleSetValue("-")
       return
     }
-    if (Number.isNaN(Number(newVal))) return
+    if (Number.isNaN(Number(newVal))) {
+      // Handle common mistranscriptions for 1 and 9
+      if (newVal === "Q" || newVal === "q") {
+        newVal = "9"
+      } else if (newVal === "L" || newVal === "l") {
+        newVal = "1"
+      } else {
+        // Don't allow non-numeric input other than the clear values
+        return
+      }
+    }
     if (Number(newVal) < 1 || Number(newVal) > 9) return
     handleSetValue(newVal)
   }
@@ -157,10 +167,13 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
         alignContent: "center",
         justifyContent: "center",
         padding: 0,
+        margin: 0,
       })}
       inputWrapperStyle={themed({
         height: "100%",
         width: "100%",
+        padding: 0,
+        margin: 0,
         borderRadius: 0,
         borderColor: theme.colors.border,
         borderStyle: "solid",
@@ -170,17 +183,18 @@ export function SudokuCell({ cellIndex }: { cellIndex: number }) {
         borderTopWidth: cellCoords.row % 3 === 0 ? 1 : 0.25,
         borderBottomWidth: cellCoords.row % 3 === 2 ? 1 : 0.25,
         backgroundColor: cellBgColor,
-        padding: 0,
       })}
       style={themed({
         width: "100%",
         height: "100%",
+        padding: 0,
+        margin: 0,
+        marginVertical: 0, // override system TextField margin
+        marginHorizontal: 0, // override system TextField margin
         fontSize: platform.isPad && platform.isPortrait ? 52 : 32,
-        lineHeight: platform.isPad && platform.isPortrait ? 52 : 32,
         fontFamily: "LexendDeca_200ExtraLight",
         textAlign: "center",
         fontWeight: 200,
-        padding: 0,
       })}
     />
   )
