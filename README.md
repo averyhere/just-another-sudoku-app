@@ -1,5 +1,7 @@
 # Just Another Sudoku App
 
+[![Download on the App Store](https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1755129600)](https://apps.apple.com/us/app/just-another-sudoku/id6749923370?itscg=30200&itsct=apps_box_badge&mttnsubad=6749923370)
+
 Just Another Sudoku is the clean, classic Sudoku experience you've been looking for. No ads, no accounts, no distractions. Just pure puzzle-solving.
 
 Whether you're unwinding before bed, sharpening your mind on your commute, or challenging yourself with harder difficulties, Just Another Sudoku gives you a focused, beautiful space to play.
