@@ -66,9 +66,9 @@ export function SettingsScreen() {
                     preset={defaultDifficulty === "easy" ? "filled" : "default"}
                     onPress={() => setDefaultDifficulty("easy")}
                     style={themed({
-                      width: "25%",
                       borderTopRightRadius: 0,
                       borderBottomRightRadius: 0,
+                      flexGrow: 1,
                     })}
                     tx="common:easyLabel"
                   />
@@ -76,9 +76,9 @@ export function SettingsScreen() {
                     preset={defaultDifficulty === "medium" ? "filled" : "default"}
                     onPress={() => setDefaultDifficulty("medium")}
                     style={themed({
-                      width: "25%",
                       borderLeftWidth: 0,
                       borderRadius: 0,
+                      flexGrow: 1,
                     })}
                     tx="common:mediumLabel"
                   />
@@ -86,9 +86,9 @@ export function SettingsScreen() {
                     preset={defaultDifficulty === "hard" ? "filled" : "default"}
                     onPress={() => setDefaultDifficulty("hard")}
                     style={themed({
-                      width: "25%",
                       borderLeftWidth: 0,
                       borderRadius: 0,
+                      flexGrow: 1,
                     })}
                     tx="common:hardLabel"
                   />
@@ -96,10 +96,10 @@ export function SettingsScreen() {
                     preset={defaultDifficulty === "expert" ? "filled" : "default"}
                     onPress={() => setDefaultDifficulty("expert")}
                     style={themed({
-                      width: "25%",
                       borderLeftWidth: 0,
                       borderTopLeftRadius: 0,
                       borderBottomLeftRadius: 0,
+                      flexGrow: 1,
                     })}
                     tx="common:expertLabel"
                   />
@@ -116,13 +116,19 @@ export function SettingsScreen() {
                   <View
                     style={themed({
                       flexDirection: "row",
-                      justifyContent: "space-between",
+                      justifyContent: "center",
                       alignItems: "center",
                     })}
                   >
-                    <Text size="lg" tx="settingsScreen:labels.clearHistory" />
-                    <Button preset="cell" onPress={clearHistory}>
-                      <FontAwesome name="history" size={24} color={theme.colors.tint} />
+                    <Button
+                      preset="default"
+                      onPress={clearHistory}
+                      LeftAccessory={() => (
+                        <FontAwesome name="history" size={24} color={theme.colors.tint} />
+                      )}
+                      style={themed({ gap: 16 })}
+                    >
+                      <Text size="lg" tx="settingsScreen:labels.clearHistory" />
                     </Button>
                   </View>
                 </View>
