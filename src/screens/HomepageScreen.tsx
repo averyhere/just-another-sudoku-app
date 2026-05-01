@@ -1,8 +1,6 @@
-// In your React component
-import { View, ViewStyle, ScrollView, TextStyle, Platform } from "react-native"
+import { View, ViewStyle, ScrollView, TextStyle, ActivityIndicator } from "react-native"
 import FontAwesome from "@expo/vector-icons/FontAwesome"
 import { SafeAreaView } from "react-native-safe-area-context"
-
 import { Card } from "@/components/Card"
 import { Logo } from "@/components/Logo"
 import { NewGameForm } from "@/components/NewGameForm"
@@ -12,7 +10,6 @@ import { useHistoryStore, useHistoryStoreHydration } from "@/storage/historyStor
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
-import { formatDate } from "@/utils/formatDate"
 import { formatTime } from "@/utils/formatTime"
 
 export function HomepageScreen() {
@@ -22,7 +19,12 @@ export function HomepageScreen() {
   const hasHydrated = useHistoryStoreHydration()
 
   if (!hasHydrated) {
-    return null
+    return (
+      <View>
+        <ActivityIndicator size="large" color={theme.colors.tint} />
+        <Text tx="common:loading" />
+      </View>
+    )
   }
 
   if (platform.isPad && platform.isLandscape) {

@@ -24,6 +24,11 @@ const es = {
     enabled: "Habilitado",
     disabled: "Deshabilitado",
   },
+  tabs: {
+    dashboard: "Tablero",
+    gameboard: "Jugar Sudoku",
+    settings: "Configuración",
+  },
   homeScreen: {
     noHistoryTitle: "Tu historial de juegos se mostrará aquí.",
     historyTitle: "Historial de juegos",

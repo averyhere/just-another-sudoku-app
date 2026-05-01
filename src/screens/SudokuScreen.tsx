@@ -1,4 +1,5 @@
-import { View, ViewStyle } from "react-native"
+import { View, ViewStyle, ActivityIndicator } from "react-native"
+import * as Haptics from "expo-haptics"
 import { SafeAreaView } from "react-native-safe-area-context"
 import type { ThemedStyle } from "@/theme/types"
 import { GameOverModal } from "@/components/GameOverModal"
@@ -22,7 +23,12 @@ export function SudokuScreen() {
   const [controlsLeft, setControlsLeft] = useState<boolean>(false)
 
   if (!hasHydrated) {
-    return <Text tx="common:loading" />
+    return (
+      <View>
+        <ActivityIndicator size="large" color={theme.colors.tint} />
+        <Text tx="common:loading" />
+      </View>
+    )
   }
 
   const $gameboardLayout =
@@ -84,7 +90,7 @@ export function SudokuScreen() {
               alignItems: "center",
               justifyContent: "center",
               flexGrow: 1,
-              gap: 64,
+              gap: 16,
             })}
           >
             <View style={themed($gameboardLayout)}>
@@ -111,7 +117,10 @@ export function SudokuScreen() {
                 <Button
                   preset="default"
                   text={`Move Controls ${controlsLeft ? "Right" : "Left"}`}
-                  onPress={() => setControlsLeft(!controlsLeft)}
+                  onPress={() => {
+                    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)
+                    setControlsLeft(!controlsLeft)
+                  }}
                 />
               </View>
             )}
@@ -143,7 +152,7 @@ const $defaultLayout: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 
 const $padPortraitLayout: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   width: "100%",
-  maxWidth: 768,
+  maxWidth: 700,
 })
 
 const $padLandscapeLayout: ThemedStyle<ViewStyle> = ({ spacing }) => ({

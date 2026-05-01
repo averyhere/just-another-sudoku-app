@@ -1,12 +1,8 @@
-// In your React component
-import { View, ViewStyle, ScrollView } from "react-native"
+import { View, ViewStyle, ScrollView, ActivityIndicator } from "react-native"
 import { Link } from "expo-router"
 import FontAwesome from "@expo/vector-icons/FontAwesome"
 import { SafeAreaView } from "react-native-safe-area-context"
-import { Difficulty } from "sudoku-gen/dist/types/difficulty.type"
-
 import { Button } from "@/components/Button"
-import { Card } from "@/components/Card"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import { ThemeToggle } from "@/components/ThemeToggle"
@@ -19,11 +15,16 @@ import { ThemedStyle } from "@/theme/types"
 export function SettingsScreen() {
   const { themed, theme, platform } = useAppTheme()
 
-  const { defaultDifficulty, setDefaultDifficulty } = useSettingsStore()
-  const { clearHistory, seed } = useHistoryStore()
+  const { defaultDifficulty, setDefaultDifficulty, hasHydrated } = useSettingsStore()
+  const { clearHistory, hasHydrated: historyHasHydrated } = useHistoryStore()
 
-  const handleUpdateDefaultDifficulty = (difficulty: Difficulty) => {
-    setDefaultDifficulty(difficulty)
+  if (!hasHydrated || !historyHasHydrated) {
+    return (
+      <View>
+        <ActivityIndicator size="large" color={theme.colors.tint} />
+        <Text tx="common:loading" />
+      </View>
+    )
   }
 
   return (
@@ -46,198 +47,132 @@ export function SettingsScreen() {
           <View style={themed($bottomContainer)}>
             <View
               style={themed({
-                flexDirection: platform.isPad ? "row" : "column",
-                gap: 32,
+                flexDirection: "column",
+                gap: platform.isPad ? 64 : 32,
                 justifyContent: "center",
               })}
             >
-              <Card
-                heading="Set a default difficulty level"
-                style={themed({
-                  width: platform.isPad ? "40%" : "100%",
-                })}
-                ContentComponent={
-                  <View
-                    style={themed({
-                      flexDirection: "row",
-                      alignContent: "center",
-                      justifyContent: "center",
-                      width: "100%",
-                    })}
-                  >
-                    <Button
-                      preset={defaultDifficulty === "easy" ? "filled" : "default"}
-                      onPress={() => setDefaultDifficulty("easy")}
-                      style={themed({
-                        width: "25%",
-                        borderTopRightRadius: 0,
-                        borderBottomRightRadius: 0,
-                      })}
-                      tx="common:easyLabel"
-                    />
-                    <Button
-                      preset={defaultDifficulty === "medium" ? "filled" : "default"}
-                      onPress={() => setDefaultDifficulty("medium")}
-                      style={themed({
-                        width: "25%",
-                        borderLeftWidth: 0,
-                        borderRadius: 0,
-                      })}
-                      tx="common:mediumLabel"
-                    />
-                    <Button
-                      preset={defaultDifficulty === "hard" ? "filled" : "default"}
-                      onPress={() => setDefaultDifficulty("hard")}
-                      style={themed({
-                        width: "25%",
-                        borderLeftWidth: 0,
-                        borderRadius: 0,
-                      })}
-                      tx="common:hardLabel"
-                    />
-                    <Button
-                      preset={defaultDifficulty === "expert" ? "filled" : "default"}
-                      onPress={() => setDefaultDifficulty("expert")}
-                      style={themed({
-                        width: "25 %",
-                        borderLeftWidth: 0,
-                        borderTopLeftRadius: 0,
-                        borderBottomLeftRadius: 0,
-                      })}
-                      tx="common:expertLabel"
-                    />
-                  </View>
-                }
-              />
-
-              <Card
-                heading="Select a color theme"
-                style={themed({
-                  width: platform.isPad ? "40%" : "100%",
-                })}
-                ContentComponent={
-                  <View
-                    style={themed({
-                      gap: 16,
-                      padding: 8,
-                      alignItems: "center",
-                    })}
-                  >
-                    <ThemeToggle />
-                  </View>
-                }
-              />
-            </View>
-
-            <View
-              style={themed({
-                flexDirection: platform.isPad ? "row" : "column",
-                width: "100%",
-                gap: 32,
-                justifyContent: "center",
-              })}
-            >
-              <Card
-                heading="Manage my data"
-                style={themed({
-                  width: platform.isPad ? "40%" : "100%",
-                })}
-                ContentComponent={
-                  <View style={themed({ gap: 16, padding: 8 })}>
-                    <View
-                      style={themed({
-                        flexDirection: "row",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                      })}
-                    >
-                      <Text size="lg" tx="settingsScreen:labels.clearHistory" />
-                      <Button preset="cell" onPress={clearHistory}>
-                        <FontAwesome name="history" size={24} color={theme.colors.tint} />
-                      </Button>
-                    </View>
-                  </View>
-                }
-              />
-
-              <View
-                style={themed({
-                  gap: 16,
-                  padding: 8,
-                  width: platform.isPad ? "40%" : "100%",
-                })}
-              >
-                <Text style={themed({ textAlign: "center" })}>🏳️‍🌈🏳️‍⚧️✌🏼❤️</Text>
-                <Text
-                  size="xs"
-                  style={themed({ textAlign: "center" })}
-                  tx="settingsScreen:madeWithLove"
-                />
+              <View>
+                <Text size="lg" tx="settingsScreen:labels.defaultDifficulty" />
                 <View
                   style={themed({
                     flexDirection: "row",
+                    alignContent: "center",
                     justifyContent: "center",
-                    gap: 4,
+                    width: "100%",
                   })}
                 >
-                  <Link
-                    href="https://github.com/averyhere/just-another-sudoku-app"
-                    style={themed({ padding: 8 })}
-                  >
-                    <FontAwesome name="github" size={24} color={theme.colors.tint} />
-                  </Link>
-                  <Link href="https://averyhere.com" style={themed({ padding: 8 })}>
-                    <FontAwesome name="link" size={24} color={theme.colors.tint} />
-                  </Link>
-                  <Link href="https://www.linkedin.com/in/averyondo" style={themed({ padding: 8 })}>
-                    <FontAwesome name="linkedin" size={24} color={theme.colors.tint} />
-                  </Link>
+                  <Button
+                    preset={defaultDifficulty === "easy" ? "filled" : "default"}
+                    onPress={() => setDefaultDifficulty("easy")}
+                    style={themed({
+                      borderTopRightRadius: 0,
+                      borderBottomRightRadius: 0,
+                      flexGrow: 1,
+                    })}
+                    tx="common:easyLabel"
+                  />
+                  <Button
+                    preset={defaultDifficulty === "medium" ? "filled" : "default"}
+                    onPress={() => setDefaultDifficulty("medium")}
+                    style={themed({
+                      borderLeftWidth: 0,
+                      borderRadius: 0,
+                      flexGrow: 1,
+                    })}
+                    tx="common:mediumLabel"
+                  />
+                  <Button
+                    preset={defaultDifficulty === "hard" ? "filled" : "default"}
+                    onPress={() => setDefaultDifficulty("hard")}
+                    style={themed({
+                      borderLeftWidth: 0,
+                      borderRadius: 0,
+                      flexGrow: 1,
+                    })}
+                    tx="common:hardLabel"
+                  />
+                  <Button
+                    preset={defaultDifficulty === "expert" ? "filled" : "default"}
+                    onPress={() => setDefaultDifficulty("expert")}
+                    style={themed({
+                      borderLeftWidth: 0,
+                      borderTopLeftRadius: 0,
+                      borderBottomLeftRadius: 0,
+                      flexGrow: 1,
+                    })}
+                    tx="common:expertLabel"
+                  />
                 </View>
-                <Text style={themed({ textAlign: "center" })} size="xxs">
-                  &copy; {new Date().getFullYear()} Avery Ondo.
-                </Text>
               </View>
-            </View>
-          </View>
 
-          {/* {process.env.NODE_ENV === "development" && (
-            <View
-              style={themed({
-                flexDirection: platform.isPad ? "row" : "column",
-                gap: 32,
-                justifyContent: "center",
-              })}
-            >
-              <Card
-                heading="Development Tools"
-                style={themed({
-                  width: platform.isPad ? "40%" : "100%",
-                })}
-                headingStyle={{ color: theme.colors.error }}
-                ContentComponent={
+              <View>
+                <Text size="lg" tx="settingsScreen:labels.theme" />
+                <ThemeToggle />
+              </View>
+
+              <View>
+                <View style={themed({ gap: 16 })}>
                   <View
                     style={themed({
-                      gap: 16,
-                      padding: 8,
+                      flexDirection: "row",
+                      justifyContent: "center",
+                      alignItems: "center",
                     })}
                   >
-                    <View
-                      style={themed({
-                        flexDirection: "row",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                      })}
+                    <Button
+                      preset="default"
+                      onPress={clearHistory}
+                      LeftAccessory={() => (
+                        <FontAwesome name="history" size={24} color={theme.colors.tint} />
+                      )}
+                      style={themed({ gap: 16 })}
                     >
-                      <Text size="lg" text="Seed History" />
-                      <Button preset="cell" onPress={seed}>
-                        <FontAwesome name="database" size={24} color={theme.colors.text} />
-                      </Button>
-                    </View>
+                      <Text size="lg" tx="settingsScreen:labels.clearHistory" />
+                    </Button>
                   </View>
-                }
-              />
+                </View>
+              </View>
             </View>
-          )} */}
+
+            <View
+              style={themed({
+                gap: 16,
+                padding: 8,
+                width: "100%",
+              })}
+            >
+              <Text style={themed({ textAlign: "center" })}>🏳️‍🌈🏳️‍⚧️✌🏼❤️</Text>
+              <Text
+                size="xs"
+                style={themed({ textAlign: "center" })}
+                tx="settingsScreen:madeWithLove"
+              />
+              <View
+                style={themed({
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  gap: 4,
+                })}
+              >
+                <Link
+                  href="https://github.com/averyhere/just-another-sudoku-app"
+                  style={themed({ padding: 8 })}
+                >
+                  <FontAwesome name="github" size={24} color={theme.colors.tint} />
+                </Link>
+                <Link href="https://averyhere.com" style={themed({ padding: 8 })}>
+                  <FontAwesome name="link" size={24} color={theme.colors.tint} />
+                </Link>
+                <Link href="https://www.linkedin.com/in/averyondo" style={themed({ padding: 8 })}>
+                  <FontAwesome name="linkedin" size={24} color={theme.colors.tint} />
+                </Link>
+              </View>
+              <Text style={themed({ textAlign: "center" })} size="xxs">
+                &copy; {new Date().getFullYear()} Avery Ondo.
+              </Text>
+            </View>
+          </View>
         </SafeAreaView>
       </ScrollView>
     </Screen>
@@ -253,7 +188,9 @@ const $topContainer: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 
 const $bottomContainer: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   width: "100%",
+  height: "100%",
   gap: 32,
-  flexWrap: "wrap",
-  padding: spacing.sm,
+  flexDirection: "column",
+  justifyContent: "space-between",
+  padding: spacing.lg,
 })

@@ -2,7 +2,7 @@ import { View } from "react-native"
 import { BlurView } from "expo-blur"
 import { Tabs } from "expo-router"
 import FontAwesome from "@expo/vector-icons/FontAwesome"
-
+import { translate as tx } from "@/i18n/translate"
 import { Logo } from "@/components/Logo"
 import { useAppTheme } from "@/theme/context"
 
@@ -11,6 +11,7 @@ export default function TabLayout() {
 
   return (
     <Tabs
+      detachInactiveScreens={false}
       screenOptions={() => ({
         swipeEnabled: true,
         tabBarBackground: () => (
@@ -32,8 +33,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Dashboard",
-          tabBarAccessibilityLabel: "Dashboard",
+          title: tx("tabs:dashboard"),
+          tabBarAccessibilityLabel: tx("tabs:dashboard"),
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="dashboard" color={color} />,
           headerShown: false,
         }}
@@ -41,8 +42,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="gameboard"
         options={{
-          title: "Play Sudoku",
-          tabBarAccessibilityLabel: "Sudoku game",
+          title: tx("tabs:gameboard"),
+          tabBarAccessibilityLabel: tx("tabs:gameboard"),
           tabBarIcon: ({ focused }) => <Logo size={36} variant={focused ? "color" : "tinted"} />,
           headerShown: false,
         }}
@@ -50,8 +51,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="settings"
         options={{
-          title: "Settings",
-          tabBarAccessibilityLabel: "Settings",
+          title: tx("tabs:settings"),
+          tabBarAccessibilityLabel: tx("tabs:settings"),
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
           headerShown: false,
         }}

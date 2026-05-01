@@ -1,5 +1,6 @@
 // In your React component
 import { useState } from "react"
+import * as Haptics from "expo-haptics"
 import { View } from "react-native"
 import { useRouter } from "expo-router"
 import { Difficulty } from "sudoku-gen/dist/types/difficulty.type"
@@ -21,6 +22,7 @@ export function NewGameForm({ onStartNewGame }: { onStartNewGame?: () => void })
   const { newGame, gameStatus } = useGameStore()
 
   const handleNewGame = () => {
+    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
     if (onStartNewGame) {
       onStartNewGame()
     }
@@ -30,7 +32,7 @@ export function NewGameForm({ onStartNewGame }: { onStartNewGame?: () => void })
 
   return (
     <View style={themed({ gap: 16 })}>
-      <Text size="xs" style={themed({ textAlign: "center" })} tx="newGameScreen:description" />
+      <Text size="xs" style={themed({ textAlign: "center" })} tx="common:difficulty" />
 
       <View
         style={themed({

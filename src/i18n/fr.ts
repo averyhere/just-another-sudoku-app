@@ -24,6 +24,11 @@ const fr = {
     enabled: "Activé",
     disabled: "Désactivé",
   },
+  tabs: {
+    dashboard: "Tableau de bord",
+    gameboard: "Jouer au Sudoku",
+    settings: "Paramètres",
+  },
   homeScreen: {
     noHistoryTitle: "Votre historique de jeu s'affichera ici.",
     historyTitle: "Historique des jeux",

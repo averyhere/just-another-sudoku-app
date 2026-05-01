@@ -1,10 +1,10 @@
 import { View, ViewStyle } from "react-native"
+import * as Haptics from "expo-haptics"
 import type { ThemedStyle } from "@/theme/types"
 import { Button } from "@/components/Button"
 import { useGameStore, useGameStoreHydration } from "@/storage/gameStore"
 import { useHistoryStore } from "@/storage/historyStore"
 import { useAppTheme } from "@/theme/context"
-import { useState } from "react"
 
 export function SudokuControls() {
   const { themed, theme, platform } = useAppTheme()
@@ -32,13 +32,6 @@ export function SudokuControls() {
     return null
   }
 
-  const handleAutofill = () => {
-    if (!puzzle || !solution) return
-    const newPuzzle = solution
-    newPuzzle[solution.length - 1] = "-"
-    setPuzzle(newPuzzle)
-  }
-
   const handleSetValue = (value: string) => {
     if (!puzzle) return
     if (!value) return
@@ -52,7 +45,9 @@ export function SudokuControls() {
     newPuzzle[pointer.index] = value
     setPuzzle(newPuzzle)
 
+    // Game over: Won
     if (newPuzzle.join("") === solution.join("")) {
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
       pause()
       addEntry({
         date: new Date(),
@@ -65,9 +60,12 @@ export function SudokuControls() {
         gameStatus: "won",
       })
       setGameStatus("won")
+      return
     }
 
+    // Game over: Lost
     if (newPuzzle[pointer.index] !== solution[pointer.index] && value !== "-") {
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error)
       incrementErrorCount()
       // note: 4 because this makes it "on the fifth mistake"
       if (difficulty !== "easy" && errorCount >= 4) {
@@ -84,6 +82,12 @@ export function SudokuControls() {
         })
         setGameStatus("lost")
       }
+      return
+    }
+
+    // Correct but not game over
+    if (newPuzzle[pointer.index] === solution[pointer.index] && value !== "-") {
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
     }
   }
 
@@ -105,7 +109,7 @@ export function SudokuControls() {
             })}
             pressedStyle={themed({
               backgroundColor: theme.colors.sudokuPalette.cellBackgroundAlt,
-              paddingTop: 16,
+              paddingBottom: 16,
             })}
             disabledStyle={themed({
               opacity: 0.35,
@@ -136,6 +140,7 @@ export function SudokuControls() {
           onPress={() => {
             clearPointer()
             handleSetValue("-")
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
           }}
           tx="common:clearValue"
           style={themed({
@@ -181,7 +186,7 @@ const $numPadLayout: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 })
 const $defaultButton: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   width: "11.111%",
-  aspectRatio: 1 / 2,
+  aspectRatio: 1 / 1.5,
   borderRadius: 0,
   alignItems: "center",
   justifyContent: "center",

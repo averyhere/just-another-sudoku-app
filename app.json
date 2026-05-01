@@ -3,7 +3,7 @@
     "name": "Sudoku",
     "slug": "just-another-sudoku-app",
     "scheme": "justanothersudokuapp",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -21,7 +21,6 @@
         "backgroundColor": "#171717"
       },
       "allowBackup": false,
-      "edgeToEdgeEnabled": true
     },
     "ios": {
       "icon": {
